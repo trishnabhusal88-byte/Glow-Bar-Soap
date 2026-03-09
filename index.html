@@ -3,3543 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glow Bar — Pure by Nature. Crafted by Hand.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Glow Bar | Premium Handmade Soap Nepal</title>
+    
+    <!-- Google Fonts: Playfair Display for elegance, Poppins for readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        /* ============================================
-           CSS RESET & ROOT VARIABLES
-           ============================================ */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* =========================================
+           CSS STYLES (DESIGN)
+           ========================================= */
+        
         :root {
-            --primary: #4a7c59;
-            --primary-dark: #2d5a3f;
-            --primary-light: #6b9e7a;
-            --accent: #c8956c;
-            --accent-light: #e8c4a0;
-            --accent-dark: #a06b3c;
-            --cream: #faf6f0;
-            --cream-dark: #f0e8d8;
-            --text-dark: #2c2c2c;
-            --text-medium: #5a5a5a;
-            --text-light: #8a8a8a;
+            /* Brand Colors */
+            --primary: #556B2F;   /* Olive Green (Nature) */
+            --secondary: #8FBC8F; /* Light Green */
+            --accent: #D2B48C;    /* Tan/Earth */
+            --bg: #F9F7F2;        /* Cream/Paper */
+            --text: #333333;      /* Dark Grey */
             --white: #ffffff;
-            --black: #1a1a1a;
-            --gold: #c9a84c;
-            --gold-light: #e8d48b;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-            --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
-            --shadow-xl: 0 30px 80px rgba(0,0,0,0.15);
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-xl: 32px;
-            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cream);
-            color: var(--text-dark);
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.7;
         }
 
+        /* Typography */
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
-            line-height: 1.2;
-        }
-
-        .serif-italic {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-        }
-
-        .lora {
-            font-family: 'Lora', serif;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* ============================================
-           LOADING SCREEN
-           ============================================ */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--cream);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 99999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
             color: var(--primary);
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease;
         }
 
-        .loader-bar {
-            width: 200px;
-            height: 2px;
-            background: var(--cream-dark);
-            border-radius: 10px;
-            overflow: hidden;
-        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { width: 100%; display: block; }
 
-        .loader-bar::after {
-            content: '';
-            display: block;
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 10px;
-            animation: loading 2s ease forwards;
-        }
-
-        @keyframes loading {
-            to { width: 100%; }
-        }
-
-        /* ============================================
-           CUSTOM CURSOR
-           ============================================ */
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             position: fixed;
-            pointer-events: none;
-            z-index: 99998;
-            transition: transform 0.1s ease;
-        }
-
-        .cursor-ring {
-            width: 40px;
-            height: 40px;
-            border: 1.5px solid var(--primary);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 99997;
-            transition: all 0.15s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        /* ============================================
-           NAVIGATION
-           ============================================ */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            z-index: 9999;
-            padding: 20px 60px;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            background: rgba(250, 246, 240, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 14px 60px;
-            box-shadow: 0 2px 30px rgba(0,0,0,0.06);
-        }
-
-        .nav-logo {
-            display: flex;
             align-items: center;
-            gap: 12px;
+            padding: 1rem 2rem;
         }
 
-        .nav-logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .nav-logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
+        .logo {
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-dark);
             letter-spacing: 2px;
+            color: var(--primary);
+            text-transform: uppercase;
         }
 
-        .nav-logo-text span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            list-style: none;
-        }
-
+        .nav-links { display: flex; gap: 2.5rem; }
         .nav-links a {
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
+            font-size: 0.9rem;
+            font-weight: 600;
             text-transform: uppercase;
-            color: var(--text-dark);
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
+            letter-spacing: 1px;
         }
+        .nav-links a:hover { color: var(--accent); }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transition: width 0.4s ease;
+        .cta-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
+        .cta-btn:hover { background-color: var(--accent); }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white !important;
-            padding: 12px 28px !important;
-            border-radius: 50px;
-            font-weight: 600 !important;
-            letter-spacing: 1px !important;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
-        }
-
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(74, 124, 89, 0.4);
-            color: white !important;
-        }
-
-        .nav-instagram {
-            color: var(--accent) !important;
-            font-size: 1.2rem !important;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 10001;
-        }
-
-        .hamburger span {
-            width: 28px;
-            height: 2px;
-            background: var(--text-dark);
-            transition: var(--transition);
-            border-radius: 2px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -6px);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
+        /* --- HERO SECTION --- */
+        #home {
             height: 100vh;
-            background: var(--cream);
-            z-index: 10000;
-            transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu a {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--text-dark);
-            transition: var(--transition);
-        }
-
-        .mobile-menu a:hover {
-            color: var(--primary);
-        }
-
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 50%, #f0e8d0 100%);
-        }
-
-        .hero-bg-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7c59' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .hero-floating {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: heroFloat 8s ease-in-out infinite;
-        }
-
-        .hero-floating:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            top: -100px;
-            right: -50px;
-            animation-delay: 0s;
-        }
-
-        .hero-floating:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            background: var(--accent);
-            bottom: -50px;
-            left: -50px;
-            animation-delay: 2s;
-        }
-
-        .hero-floating:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            background: var(--gold);
-            top: 50%;
-            left: 30%;
-            animation-delay: 4s;
-        }
-
-        @keyframes heroFloat {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.05); }
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 120px 60px 80px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease 0.5s both;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(74, 124, 89, 0.08);
-            border: 1px solid rgba(74, 124, 89, 0.15);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
-
-        .hero-badge i {
-            font-size: 0.6rem;
-        }
-
-        .hero h1 {
-            font-size: 4.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-            line-height: 1.1;
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero h1 .accent-text {
-            color: var(--accent);
-            -webkit-text-fill-color: var(--accent);
-        }
-
-        .hero-tagline {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.4rem;
-            color: var(--accent-dark);
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-
-        .hero p {
-            font-size: 1.05rem;
-            color: var(--text-medium);
-            line-height: 1.8;
-            margin-bottom: 40px;
-            max-width: 500px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            margin-bottom: 50px;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: var(--transition);
-            box-shadow: 0 8px 30px rgba(74, 124, 89, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(74, 124, 89, 0.4);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: transparent;
-            color: var(--text-dark);
-            padding: 16px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: var(--transition);
-            border: 2px solid var(--text-dark);
-            cursor: pointer;
-        }
-
-        .btn-secondary:hover {
-            background: var(--text-dark);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 50px;
-        }
-
-        .hero-stat {
-            text-align: left;
-        }
-
-        .hero-stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .hero-stat-label {
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            animation: fadeInUp 1s ease 0.8s both;
-        }
-
-        .hero-image-main {
-            width: 100%;
-            max-width: 520px;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            position: relative;
-            margin: 0 auto;
-        }
-
-        .hero-image-main img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .hero-image-main:hover img {
-            transform: scale(1.05);
-        }
-
-        .hero-floating-card {
-            position: absolute;
-            background: white;
-            padding: 20px 24px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            animation: cardFloat 4s ease-in-out infinite;
-        }
-
-        .hero-floating-card.card-1 {
-            bottom: 40px;
-            left: -60px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .hero-floating-card.card-1 .card-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            border-radius: 50%;
+            /* Placeholder Image - REPLACE with your own if needed */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1547793548-7a0e7dfdb24f?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-        }
-
-        .hero-floating-card.card-1 .card-text h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .hero-floating-card.card-1 .card-text p {
-            font-size: 0.72rem;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        .hero-floating-card.card-2 {
-            top: 60px;
-            right: -30px;
             text-align: center;
+            color: var(--white);
+            padding-top: 60px;
         }
 
-        .hero-floating-card.card-2 .stars {
-            color: var(--gold);
-            font-size: 0.8rem;
-            margin-bottom: 5px;
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
         }
 
-        .hero-floating-card.card-2 p {
-            font-size: 0.75rem;
-            color: var(--text-medium);
-            margin: 0;
-            font-weight: 500;
-        }
-
-        @keyframes cardFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ============================================
-           MARQUEE BANNER
-           ============================================ */
-        .marquee-section {
-            background: var(--primary-dark);
-            padding: 18px 0;
-            overflow: hidden;
-        }
-
-        .marquee-track {
-            display: flex;
-            animation: marquee 30s linear infinite;
-            width: max-content;
-        }
-
-        .marquee-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 0 40px;
-            white-space: nowrap;
-        }
-
-        .marquee-item span {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .marquee-item i {
-            color: var(--accent-light);
-            font-size: 0.5rem;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* ============================================
-           SECTION STYLES (SHARED)
-           ============================================ */
-        .section {
-            padding: 120px 60px;
-        }
-
-        .section-header {
-            text-align: center;
+        .hero-content p {
+            font-size: 1.3rem;
             max-width: 700px;
-            margin: 0 auto 80px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 300;
         }
 
-        .section-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .section-label::before,
-        .section-label::after {
-            content: '';
-            width: 30px;
-            height: 1px;
-            background: var(--accent);
-        }
-
-        .section-header h2 {
-            font-size: 3rem;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-
-        .section-header h2 .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header p {
-            font-size: 1.05rem;
-            color: var(--text-medium);
-            line-height: 1.8;
-        }
-
-        /* ============================================
-           ABOUT SECTION
-           ============================================ */
-        .about {
+        .hero-btn {
             background: var(--white);
-        }
-
-        .about-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-images {
-            position: relative;
-            height: 600px;
-        }
-
-        .about-img {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            position: absolute;
-        }
-
-        .about-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-img-1 {
-            width: 320px;
-            height: 400px;
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
-
-        .about-img-2 {
-            width: 280px;
-            height: 350px;
-            bottom: 0;
-            right: 0;
-            z-index: 1;
-        }
-
-        .about-experience-badge {
-            position: absolute;
-            bottom: 120px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-experience-badge .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .about-experience-badge .text {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        .about-content h2 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-        }
-
-        .about-content .tagline {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin-bottom: 25px;
-        }
-
-        .about-content p {
-            color: var(--text-medium);
-            line-height: 1.8;
-            margin-bottom: 15px;
-            font-size: 0.98rem;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 35px;
-        }
-
-        .about-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 18px;
-            background: var(--cream);
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
-        }
-
-        .about-feature:hover {
-            transform: translateX(5px);
-            background: rgba(74, 124, 89, 0.06);
-        }
-
-        .about-feature i {
             color: var(--primary);
-            font-size: 1rem;
-            width: 20px;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .hero-btn:hover { background: var(--accent); color: var(--white); }
+
+        /* --- GENERIC SECTIONS --- */
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-img img {
+            border-radius: 10px;
+            box-shadow: 15px 15px 0 var(--accent);
+        }
+        .about-text p { margin-bottom: 1.5rem; }
+
+        /* --- FEATURES (ICONS) --- */
+        .features { background: var(--white); }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             text-align: center;
         }
-
-        .about-feature span {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-dark);
+        .feature-item {
+            padding: 2rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: 0.3s;
         }
-
-        /* ============================================
-           PRODUCTS SECTION
-           ============================================ */
-        .products {
-            background: var(--cream);
+        .feature-item:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.05); transform: translateY(-5px); }
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
         }
+        .feature-item h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-        .products-grid {
-            max-width: 1300px;
-            margin: 0 auto;
+        /* --- PRODUCTS SECTION --- */
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
-
         .product-card {
             background: var(--white);
-            border-radius: var(--radius-lg);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            position: relative;
-            group: true;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            z-index: 3;
-        }
-
-        .product-badge.bestseller {
-            background: linear-gradient(135deg, var(--gold), var(--accent-dark));
-        }
-
-        .product-badge.new {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 380px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
+        .product-card:hover { transform: translateY(-10px); }
+        .product-card img {
+            height: 280px;
             object-fit: cover;
-            transition: transform 0.6s ease;
         }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.08);
-        }
-
-        .product-image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .product-card:hover .product-image-overlay {
-            opacity: 1;
-        }
-
-        .product-quick-actions {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            display: flex;
-            gap: 10px;
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-
-        .product-card:hover .product-quick-actions {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .quick-action-btn {
-            width: 45px;
-            height: 45px;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
-
-        .quick-action-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .product-info {
-            padding: 28px 28px 30px;
-        }
-
-        .product-category {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .product-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-
-        .product-description {
-            font-size: 0.88rem;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
-        .product-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .product-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
+        .product-info { padding: 1.5rem; text-align: center; }
+        .product-info h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+        .product-info p { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; }
+        .order-link {
+            display: inline-block;
             color: var(--primary);
+            font-weight: bold;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
         }
 
-        .product-price .currency {
-            font-size: 0.9rem;
-            font-weight: 400;
-        }
-
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .product-rating i {
-            color: var(--gold);
-            font-size: 0.75rem;
-        }
-
-        .product-rating span {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .product-add-btn {
-            display: block;
-            width: 100%;
-            margin-top: 18px;
-            padding: 14px;
-            background: var(--cream);
-            border: 2px solid transparent;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 0.82rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--primary-dark);
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .product-add-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* ============================================
-           BENEFITS SECTION
-           ============================================ */
-        .benefits {
-            background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
-        }
-
-        .benefits-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .benefit-card {
-            background: var(--white);
-            padding: 45px 30px;
-            border-radius: var(--radius-lg);
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        .benefit-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-        }
-
-        .benefit-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 25px;
-            background: linear-gradient(135deg, rgba(74,124,89,0.08), rgba(74,124,89,0.03));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .benefit-card:hover .benefit-icon {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .benefit-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .benefit-card p {
-            font-size: 0.88rem;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* ============================================
-           INGREDIENTS SECTION
-           ============================================ */
+        /* --- INGREDIENTS --- */
         .ingredients {
-            background: var(--primary-dark);
-            color: white;
-            position: relative;
-            overflow: hidden;
+            background-color: #E8F0E3; /* Light tint */
+            text-align: center;
         }
-
-        .ingredients::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm0-40c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zM10 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm0-40c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .ingredients .section-header h2 {
-            color: white;
-        }
-
-        .ingredients .section-header h2 .highlight {
-            background: linear-gradient(135deg, var(--accent-light), var(--gold-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .ingredients .section-header p {
-            color: rgba(255,255,255,0.65);
-        }
-
-        .ingredients .section-label {
-            color: var(--accent-light);
-        }
-
-        .ingredients .section-label::before,
-        .ingredients .section-label::after {
-            background: var(--accent-light);
-        }
-
-        .ingredients-showcase {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .ingredient-item {
+        .ing-tags {
             display: flex;
-            align-items: flex-start;
-            gap: 25px;
-            padding: 35px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-md);
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .ingredient-item:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-5px);
-            border-color: rgba(255,255,255,0.15);
-        }
-
-        .ingredient-icon {
-            width: 65px;
-            height: 65px;
-            min-width: 65px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            font-size: 1.6rem;
+            gap: 1rem;
+            margin-top: 2rem;
         }
-
-        .ingredient-text h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: white;
-        }
-
-        .ingredient-text p {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.7;
-        }
-
-        /* Ingredient center image */
-        .ingredients-center-image {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .ingredients-center-image img {
-            width: 100%;
-            max-width: 700px;
-            height: 350px;
-            object-fit: cover;
-            border-radius: var(--radius-lg);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border: 2px solid rgba(255,255,255,0.1);
-        }
-
-        /* ============================================
-           MULTI-PURPOSE / USP SECTION
-           ============================================ */
-        .usp {
-            background: var(--cream);
-            overflow: hidden;
-        }
-
-        .usp-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .usp-image {
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .usp-image img {
-            width: 100%;
-            height: 550px;
-            object-fit: cover;
-        }
-
-        .usp-content h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
-
-        .usp-content > p {
-            color: var(--text-medium);
-            line-height: 1.8;
-            margin-bottom: 40px;
-        }
-
-        .usp-uses {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .usp-use {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 22px 25px;
-            background: var(--white);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border-left: 4px solid transparent;
-        }
-
-        .usp-use:hover {
-            border-left-color: var(--primary);
-            transform: translateX(8px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .usp-use-icon {
-            width: 55px;
-            height: 55px;
-            min-width: 55px;
-            background: linear-gradient(135deg, rgba(74,124,89,0.1), rgba(74,124,89,0.02));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .usp-use:hover .usp-use-icon {
+        .tag {
             background: var(--primary);
-            color: white;
-        }
-
-        .usp-use-text h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: var(--text-dark);
-        }
-
-        .usp-use-text p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* ============================================
-           INSTAGRAM / GALLERY SECTION
-           ============================================ */
-        .gallery {
-            background: var(--white);
-            padding: 120px 0;
-        }
-
-        .gallery .section-header {
-            padding: 0 60px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 5px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(74, 124, 89, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay i {
-            color: white;
-            font-size: 1.8rem;
-        }
-
-        /* ============================================
-           REVIEWS / TESTIMONIALS
-           ============================================ */
-        .reviews {
-            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
-        }
-
-        .reviews-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .review-card {
-            background: var(--white);
-            padding: 40px 35px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        .review-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .review-quote {
-            position: absolute;
-            top: 25px;
-            right: 30px;
-            font-size: 3.5rem;
-            color: rgba(74,124,89,0.08);
-            font-family: 'Playfair Display', serif;
-            line-height: 1;
-        }
-
-        .review-stars {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 20px;
-        }
-
-        .review-stars i {
-            color: var(--gold);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
             font-size: 0.9rem;
         }
 
-        .review-text {
-            font-family: 'Lora', serif;
-            font-size: 1rem;
-            color: var(--text-medium);
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .review-author-info h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .review-author-info p {
-            font-size: 0.78rem;
-            color: var(--text-light);
-        }
-
-        .review-verified {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.7rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-top: 3px;
-        }
-
-        .review-verified i {
-            font-size: 0.65rem;
-        }
-
-        /* ============================================
-           PROCESS SECTION
-           ============================================ */
-        .process {
-            background: var(--white);
-        }
-
-        .process-timeline {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            position: relative;
-        }
-
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            top: 55px;
-            left: 13%;
-            width: 74%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
-        }
-
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .process-number {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 25px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 4px 15px rgba(74,124,89,0.3);
-            border: 4px solid var(--white);
-        }
-
-        .process-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .process-step h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .process-step p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* ============================================
-           CTA / NEWSLETTER SECTION
-           ============================================ */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            padding: 100px 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.03);
-        }
-
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.03);
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        .cta-content h2 {
-            font-size: 2.8rem;
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .cta-content p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.05rem;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .cta-form {
-            display: flex;
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .cta-form input {
-            flex: 1;
-            padding: 16px 24px;
-            border: 2px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.1);
-            border-radius: 50px;
-            color: white;
-            font-size: 0.95rem;
-            outline: none;
-            transition: var(--transition);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .cta-form input::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-
-        .cta-form input:focus {
-            border-color: rgba(255,255,255,0.5);
-            background: rgba(255,255,255,0.15);
-        }
-
-        .cta-form button {
-            padding: 16px 32px;
-            background: white;
-            color: var(--primary-dark);
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-
-        .cta-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        /* ============================================
-           CONTACT SECTION
-           ============================================ */
+        /* --- CONTACT --- */
         .contact {
-            background: var(--cream);
-        }
-
-        .contact-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
-        }
-
-        .contact-info {
-            padding: 20px 0;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-info > p {
-            color: var(--text-medium);
-            line-height: 1.8;
-            margin-bottom: 40px;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-        }
-
-        .contact-detail-icon {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .contact-detail-text h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: var(--text-dark);
-        }
-
-        .contact-detail-text p {
-            font-size: 0.88rem;
-            color: var(--text-medium);
-        }
-
-        .contact-social {
-            display: flex;
-            gap: 12px;
-        }
-
-        .contact-social a {
-            width: 45px;
-            height: 45px;
-            border: 2px solid rgba(0,0,0,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-medium);
-            transition: var(--transition);
-            font-size: 1rem;
-        }
-
-        .contact-social a:hover {
             background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-            transform: translateY(-3px);
+            color: var(--white);
+            text-align: center;
         }
-
-        .contact-form-wrapper {
+        .contact h2 { color: var(--white); }
+        .contact-box {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .ig-button {
+            display: inline-block;
+            margin-top: 2rem;
             background: var(--white);
-            padding: 50px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-        }
-
-        .contact-form-wrapper h3 {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 22px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--text-medium);
-            margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid rgba(0,0,0,0.06);
-            border-radius: var(--radius-sm);
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            background: var(--cream);
-            outline: none;
-            transition: var(--transition);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--primary);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(74,124,89,0.08);
-        }
-
-        .form-group textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(74,124,89,0.3);
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-        .footer {
-            background: var(--black);
-            color: rgba(255,255,255,0.8);
-            padding: 80px 60px 30px;
-        }
-
-        .footer-grid {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-            gap: 50px;
-            padding-bottom: 50px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .footer-brand .nav-logo {
-            margin-bottom: 20px;
-        }
-
-        .footer-brand .nav-logo-text {
-            color: white;
-        }
-
-        .footer-brand p {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 25px;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 12px;
-        }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.6);
-            transition: var(--transition);
-            font-size: 0.9rem;
-        }
-
-        .footer-social a:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-
-        .footer-column h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: white;
-            margin-bottom: 25px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 14px;
-        }
-
-        .footer-column ul li a {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.5);
-            transition: var(--transition);
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--accent-light);
-            padding-left: 5px;
-        }
-
-        .footer-newsletter p {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .footer-newsletter-form {
-            display: flex;
-            gap: 10px;
-        }
-
-        .footer-newsletter-form input {
-            flex: 1;
-            padding: 12px 18px;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(255,255,255,0.05);
+            color: #C13584; /* Instagram Color */
+            padding: 1rem 2rem;
             border-radius: 50px;
-            color: white;
-            font-size: 0.85rem;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .footer-newsletter-form input:focus {
-            border-color: var(--primary);
-        }
-
-        .footer-newsletter-form button {
-            padding: 12px 22px;
-            background: var(--primary);
-            border: none;
-            border-radius: 50px;
-            color: white;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .footer-newsletter-form button:hover {
-            background: var(--primary-light);
-        }
-
-        .footer-bottom {
-            max-width: 1300px;
-            margin: 30px auto 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .footer-bottom p {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.35);
-        }
-
-        .footer-bottom-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .footer-bottom-links a {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.35);
-            transition: var(--transition);
-        }
-
-        .footer-bottom-links a:hover {
-            color: var(--accent-light);
-        }
-
-        /* ============================================
-           BACK TO TOP
-           ============================================ */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border: none;
-            border-radius: 50%;
-            color: white;
+            font-weight: bold;
             font-size: 1.1rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-            box-shadow: 0 4px 20px rgba(74,124,89,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .ig-button:hover { background: #f0f0f0; transform: scale(1.05); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #222;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
         }
 
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-        }
-
-        /* ============================================
-           WHATSAPP FLOAT BUTTON
-           ============================================ */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 55px;
-            height: 55px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            z-index: 999;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-            transition: var(--transition);
-            animation: whatsappPulse 2s ease-in-out infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes whatsappPulse {
-            0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-            50% { box-shadow: 0 4px 30px rgba(37,211,102,0.6), 0 0 0 10px rgba(37,211,102,0.1); }
-        }
-
-        /* ============================================
-           SCROLL ANIMATIONS
-           ============================================ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-        .reveal-delay-5 { transition-delay: 0.5s; }
-        .reveal-delay-6 { transition-delay: 0.6s; }
-
-        /* ============================================
-           RESPONSIVE DESIGN
-           ============================================ */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .process-timeline {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .process-timeline::before {
-                display: none;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .section {
-                padding: 80px 30px;
-            }
-
-            .navbar {
-                padding: 15px 30px;
-            }
-
-            .navbar.scrolled {
-                padding: 12px 30px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                padding: 120px 30px 60px;
-                gap: 50px;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                max-width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .hero-image-wrapper {
-                order: -1;
-            }
-
-            .hero-floating-card.card-1 {
-                left: 10px;
-            }
-
-            .hero-floating-card.card-2 {
-                right: 10px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .about-images {
-                height: 450px;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .ingredients-showcase {
-                grid-template-columns: 1fr;
-            }
-
-            .usp-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-                max-width: 600px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-            }
-        }
-
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-
-            .hero-tagline {
-                font-size: 1.1rem;
-            }
-
-            .section-header h2 {
-                font-size: 2.2rem;
-            }
-
-            .about-content h2,
-            .usp-content h2,
-            .cta-content h2 {
-                font-size: 2.2rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
-                margin: 0 auto;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
-                margin: 0 auto;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-stats {
-                gap: 30px;
-                flex-wrap: wrap;
-            }
-
-            .hero-floating-card {
-                display: none;
-            }
-
-            .about-images {
-                height: 350px;
-            }
-
-            .about-img-1 {
-                width: 250px;
-                height: 320px;
-            }
-
-            .about-img-2 {
-                width: 220px;
-                height: 280px;
-            }
-
-            .cta-form {
-                flex-direction: column;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form-wrapper {
-                padding: 30px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .footer {
-                padding: 60px 30px 30px;
-            }
-
-            .process-timeline {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
-
-            .marquee-item span {
-                font-size: 0.7rem;
-                letter-spacing: 2px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 60px 20px;
-            }
-
-            .navbar {
-                padding: 15px 20px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero-image-main img {
-                height: 400px;
-            }
-        }
-
-        /* ============================================
-           SPECIAL ANIMATIONS
-           ============================================ */
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .shimmer-text {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 25%, var(--primary) 50%, var(--accent) 75%, var(--primary) 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 4s linear infinite;
+            .nav-links { display: none; } /* Simplified for mobile */
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ========== LOADING SCREEN ========== -->
-    <div class="loader" id="loader">
-        <div class="loader-logo">GLOW BAR</div>
-        <div class="loader-bar"></div>
-    </div>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Glow Bar</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#ingredients">Ingredients</a></li>
+            </ul>
+            <a href="#contact" class="cta-btn">Order Now</a>
+        </nav>
+    </header>
 
-    <!-- ========== NAVIGATION ========== -->
-    <nav class="navbar" id="navbar">
-        <a href="#" class="nav-logo">
-            <div class="nav-logo-icon">
-                <i class="fas fa-leaf"></i>
-            </div>
-            <div class="nav-logo-text">GLOW<span>BAR</span></div>
-        </a>
-
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#benefits">Benefits</a></li>
-            <li><a href="#ingredients">Ingredients</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="https://www.instagram.com/glowbar06" target="_blank" class="nav-instagram"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-        </ul>
-
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- HERO SECTION -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>Nature’s Essence.<br>Your True Glow.</h1>
+            <p>Handmade in Butwal, Nepal. The all-in-one natural solution for Body, Face, and Hair.</p>
+            <a href="#products" class="hero-btn">View Collection</a>
         </div>
-    </nav>
+    </section>
 
-    <!-- ========== MOBILE MENU ========== -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" onclick="closeMobileMenu()">About</a>
-        <a href="#products" onclick="closeMobileMenu()">Products</a>
-        <a href="#benefits" onclick="closeMobileMenu()">Benefits</a>
-        <a href="#ingredients" onclick="closeMobileMenu()">Ingredients</a>
-        <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
-        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-        <a href="https://www.instagram.com/glowbar06" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-    </div>
-
-    <!-- ========== HERO SECTION ========== -->
-    <section class="hero" id="home">
-        <div class="hero-bg-pattern"></div>
-        <div class="hero-floating"></div>
-        <div class="hero-floating"></div>
-        <div class="hero-floating"></div>
-
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-circle"></i>
-                    Handmade in Nepal
-                    <i class="fas fa-circle"></i>
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img">
+                    <!-- PLACEHOLDER IMAGE: You can replace the URL below with your own image link -->
+                    <img src="https://images.unsplash.com/photo-1607006411703-912a23050c76?q=80&w=1000" alt="Making Soap in Nepal">
                 </div>
-                <h1>
-                    <span class="highlight">Pure</span> by Nature.<br>
-                    <span class="accent-text">Crafted</span> by Hand.
-                </h1>
-                <p class="hero-tagline">"True glow comes from nature"</p>
-                <p>Premium handmade soaps from the heart of Butwal, Nepal — chemical-free, multi-purpose, and lovingly crafted with naturally available ingredients for your body, face & hair.</p>
-
-                <div class="hero-buttons">
-                    <a href="#products" class="btn-primary">
-                        <i class="fas fa-shopping-bag"></i>
-                        Shop Now
-                    </a>
-                    <a href="#about" class="btn-secondary">
-                        Our Story
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">100%</div>
-                        <div class="hero-stat-label">Natural</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">3-in-1</div>
-                        <div class="hero-stat-label">Multi-Purpose</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number">500+</div>
-                        <div class="hero-stat-label">Happy Users</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-image-wrapper">
-                <div class="hero-image-main">
-                    <!-- 
-                        REPLACE src below with your Instagram image URL.
-                        Example: Right-click a photo on instagram.com/glowbar06 → Copy Image Address → Paste here
-                        OR download and use: src="images/hero-soap.jpg"
-                    -->
-                    <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=600&h=800&fit=crop" alt="Glow Bar Handmade Soap from Nepal">
-                </div>
-                <div class="hero-floating-card card-1">
-                    <div class="card-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="card-text">
-                        <h4>100% Chemical Free</h4>
-                        <p>Made with nature's best</p>
-                    </div>
-                </div>
-                <div class="hero-floating-card card-2">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>Loved by 500+ customers</p>
+                <div class="about-text">
+                    <h2>The Glow Bar Story</h2>
+                    <p>Glow Bar is a premium Nepalese handmade and homemade soap brand dedicated to creating natural, handmade, and chemical-free soaps. Carefully crafted in <strong>Butwal, Nepal</strong>, our soaps are made using naturally available ingredients that are gentle on the skin and environmentally friendly.</p>
+                    <p><strong>What makes us unique?</strong> Our multi-purpose formula. A single bar can be used as a body soap, facial cleanser, and hair wash, making it a convenient solution for daily hygiene.</p>
+                    <p><em>"At Glow Bar, we believe that true glow comes from nature."</em></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== MARQUEE BANNER ========== -->
-    <div class="marquee-section">
-        <div class="marquee-track">
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Handmade</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Chemical Free</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Natural Ingredients</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Multi-Purpose</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Made in Nepal</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Eco-Friendly</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>All Skin Types</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Sustainable</span></div>
-            <!-- Duplicate for seamless loop -->
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Handmade</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Chemical Free</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Natural Ingredients</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Multi-Purpose</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Made in Nepal</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Eco-Friendly</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>All Skin Types</span></div>
-            <div class="marquee-item"><i class="fas fa-circle"></i><span>Sustainable</span></div>
-        </div>
-    </div>
-
-    <!-- ========== ABOUT SECTION ========== -->
-    <section class="section about" id="about">
-        <div class="about-grid">
-            <div class="about-images reveal">
-                <div class="about-img about-img-1">
-                    <!-- REPLACE with your Instagram photo -->
-                    <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=400&h=500&fit=crop" alt="Glow Bar soap making process">
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>100% Natural</h3>
+                    <p>Free from harsh chemicals, artificial preservatives, and synthetic additives.</p>
                 </div>
-                <div class="about-img about-img-2">
-                    <!-- REPLACE with your Instagram photo -->
-                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=350&h=420&fit=crop" alt="Natural ingredients Glow Bar">
+                <div class="feature-item">
+                    <i class="fas fa-pump-soap"></i>
+                    <h3>3-in-1 Formula</h3>
+                    <p>Perfectly balanced for Body, Face, and Hair.</p>
                 </div>
-                <div class="about-experience-badge">
-                    <div class="number">🇳🇵</div>
-                    <div class="text">Made in Nepal</div>
+                <div class="feature-item">
+                    <i class="fas fa-hands"></i>
+                    <h3>Handmade in Nepal</h3>
+                    <p>Crafted using traditional techniques and local resources.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-feather"></i>
+                    <h3>For All Skin Types</h3>
+                    <p>Mild formulation suitable for sensitive and baby skin.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="about-content reveal reveal-delay-2">
-                <div class="section-label">Our Story</div>
-                <h2>Crafted With Love in <span class="highlight">Butwal, Nepal</span></h2>
-                <p class="tagline">"Where tradition meets natural beauty"</p>
-                <p>Glow Bar is a premium Nepalese handmade and homemade soap brand dedicated to creating natural, handmade, and chemical-free soaps. Carefully crafted in Butwal, Nepal, our soaps are made using naturally available ingredients that are gentle on the skin and environmentally friendly.</p>
-                <p>By combining traditional handmade techniques with the richness of Nepal's natural resources, Glow Bar delivers a product that promotes healthy skin, natural beauty, and sustainable living.</p>
+    <!-- PRODUCTS SECTION -->
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">Our Collection</h2>
+            <p class="section-subtitle">Pure ingredients. Honest pricing.</p>
 
-                <div class="about-features">
-                    <div class="about-feature">
-                        <i class="fas fa-leaf"></i>
-                        <span>100% Natural</span>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800" alt="Glow Bar Original">
+                    <div class="product-info">
+                        <h3>Glow Bar Original</h3>
+                        <p>The classic multi-purpose bar for daily freshness and hygiene.</p>
+                        <a href="#contact" class="order-link">Order via Instagram <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="about-feature">
-                        <i class="fas fa-hand-sparkles"></i>
-                        <span>Handmade</span>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1570197571499-166b36435e9f?q=80&w=800" alt="Herbal Essence">
+                    <div class="product-info">
+                        <h3>Herbal Essence</h3>
+                        <p>Infused with Himalayan herbs for deep cleansing and healing.</p>
+                        <a href="#contact" class="order-link">Order via Instagram <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="about-feature">
-                        <i class="fas fa-flask-vial"></i>
-                        <span>Chemical-Free</span>
-                    </div>
-                    <div class="about-feature">
-                        <i class="fas fa-earth-americas"></i>
-                        <span>Eco-Friendly</span>
-                    </div>
-                    <div class="about-feature">
-                        <i class="fas fa-heart"></i>
-                        <span>All Skin Types</span>
-                    </div>
-                    <div class="about-feature">
-                        <i class="fas fa-wand-magic-sparkles"></i>
-                        <span>Multi-Purpose</span>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1600607686027-6f886090705b?q=80&w=800" alt="Deep Moisture">
+                    <div class="product-info">
+                        <h3>Deep Moisture</h3>
+                        <p>Extra oils to hydrate dry skin and protect natural balance.</p>
+                        <a href="#contact" class="order-link">Order via Instagram <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== PRODUCTS SECTION ========== -->
-    <section class="section products" id="products">
-        <div class="section-header reveal">
-            <div class="section-label">Our Collection</div>
-            <h2>Handcrafted <span class="highlight">Soap Collection</span></h2>
-            <p>Each bar is lovingly handmade with premium natural ingredients sourced from Nepal's rich biodiversity. One bar — body, face & hair.</p>
-        </div>
-
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card reveal reveal-delay-1">
-                <span class="product-badge bestseller">Bestseller</span>
-                <div class="product-image">
-                    <!-- REPLACE with your Instagram photo -->
-                    <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=500&h=500&fit=crop" alt="Glow Bar Turmeric & Honey Soap">
-                    <div class="product-image-overlay"></div>
-                    <div class="product-quick-actions">
-                        <button class="quick-action-btn" title="Quick View"><i class="fas fa-eye"></i></button>
-                        <button class="quick-action-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button>
-                        <button class="quick-action-btn" title="Share"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Body · Face · Hair</div>
-                    <h3 class="product-name">Turmeric & Honey Glow Bar</h3>
-                    <p class="product-description">A golden blend of turmeric and raw honey for radiant, glowing skin with anti-inflammatory benefits.</p>
-                    <div class="product-meta">
-                        <div class="product-price"><span class="currency">Rs.</span> 450</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(48)</span>
-                        </div>
-                    </div>
-                    <a href="https://www.instagram.com/glowbar06" target="_blank" class="product-add-btn">Order on Instagram</a>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card reveal reveal-delay-2">
-                <span class="product-badge">Natural</span>
-                <div class="product-image">
-                    <!-- REPLACE with your Instagram photo -->
-                    <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=500&h=500&fit=crop" alt="Glow Bar Charcoal Detox Soap">
-                    <div class="product-image-overlay"></div>
-                    <div class="product-quick-actions">
-                        <button class="quick-action-btn" title="Quick View"><i class="fas fa-eye"></i></button>
-                        <button class="quick-action-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button>
-                        <button class="quick-action-btn" title="Share"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Body · Face · Hair</div>
-                    <h3 class="product-name">Charcoal Detox Bar</h3>
-                    <p class="product-description">Activated charcoal deep cleanses pores and detoxifies skin while maintaining natural moisture balance.</p>
-                    <div class="product-meta">
-                        <div class="product-price"><span class="currency">Rs.</span> 500</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(35)</span>
-                        </div>
-                    </div>
-                    <a href="https://www.instagram.com/glowbar06" target="_blank" class="product-add-btn">Order on Instagram</a>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card reveal reveal-delay-3">
-                <span class="product-badge new">New</span>
-                <div class="product-image">
-                    <!-- REPLACE with your Instagram photo -->
-                    <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=500&h=500&fit=crop" alt="Glow Bar Aloe Vera & Neem Soap">
-                    <div class="product-image-overlay"></div>
-                    <div class="product-quick-actions">
-                        <button class="quick-action-btn" title="Quick View"><i class="fas fa-eye"></i></button>
-                        <button class="quick-action-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button>
-                        <button class="quick-action-btn" title="Share"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Body · Face · Hair</div>
-                    <h3 class="product-name">Aloe Vera & Neem Bar</h3>
-                    <p class="product-description">Soothing aloe vera combined with antibacterial neem for clear, refreshed, and naturally protected skin.</p>
-                    <div class="product-meta">
-                        <div class="product-price"><span class="currency">Rs.</span> 480</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(28)</span>
-                        </div>
-                    </div>
-                    <a href="https://www.instagram.com/glowbar06" target="_blank" class="product-add-btn">Order on Instagram</a>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card reveal reveal-delay-1">
-                <span class="product-badge">Natural</span>
-                <div class="product-image">
-                    <!-- REPLACE with your Instagram photo -->
-                    <img src="https://images.unsplash.com/photo-1585232004423-244e0e6904e3?w=500&h=500&fit=crop" alt="Glow Bar Lavender Calm Soap">
-                    <div class="product-image-overlay"></div>
-                    <div class="product-quick-actions">
-                        <button class="quick-action-btn" title="Quick View"><i class="fas fa-eye"></i></button>
-                        <button class="quick-action-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button>
-                        <button class="quick-action-btn" title="Share"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Body · Face · Hair</div>
-                    <h3 class="product-name">Lavender Calm Bar</h3>
-                    <p class="product-description">Calming lavender essential oil with shea butter creates a luxurious, stress-relieving bathing ritual.</p>
-                    <div class="product-meta">
-                        <div class="product-price"><span class="currency">Rs.</span> 520</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(42)</span>
-                        </div>
-                    </div>
-                    <a href="https://www.instagram.com/glowbar06" target="_blank" class="product-add-btn">Order on Instagram</a>
-                </div>
-            </div>
-
-            <!-- Product 5 -->
-            <div class="product-card reveal reveal-delay-2">
-                <span class="product-badge bestseller">Popular</span>
-                <div class="product-image">
-                    <!-- REPLACE with your Instagram photo -->
-                    <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=500&h=500&fit=crop" alt="Glow Bar Coffee Scrub Soap">
-                    <div class="product-image-overlay"></div>
-                    <div class="product-quick-actions">
-                        <button class="quick-action-btn" title="Quick View"><i class="fas fa-eye"></i></button>
-                        <button class="quick-action-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button>
-                        <button class="quick-action-btn" title="Share"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Body · Face · Hair</div>
-                    <h3 class="product-name">Coffee Scrub Bar</h3>
-                    <p class="product-description">Energizing coffee grounds with coconut oil for gentle exfoliation and smoother, brighter skin texture.</p>
-                    <div class="product-meta">
-                        <div class="product-price"><span class="currency">Rs.</span> 490</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(31)</span>
-                        </div>
-                    </div>
-                    <a href="https://www.instagram.com/glowbar06" target="_blank" class="product-add-btn">Order on Instagram</a>
-                </div>
-            </div>
-
-            <!-- Product 6 -->
-            <div class="product-card reveal reveal-delay-3">
-                <span class="product-badge new">New</span>
-                <div class="product-image">
-                    <!-- REPLACE with your Instagram photo -->
-                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=500&h=500&fit=crop" alt="Glow Bar Rice & Milk Soap">
-                    <div class="product-image-overlay"></div>
-                    <div class="product-quick-actions">
-                        <button class="quick-action-btn" title="Quick View"><i class="fas fa-eye"></i></button>
-                        <button class="quick-action-btn" title="Add to Wishlist"><i class="fas fa-heart"></i></button>
-                        <button class="quick-action-btn" title="Share"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Body · Face · Hair</div>
-                    <h3 class="product-name">Rice & Milk Glow Bar</h3>
-                    <p class="product-description">Traditional rice water and fresh milk blend for skin brightening, softening, and a youthful radiance.</p>
-                    <div class="product-meta">
-                        <div class="product-price"><span class="currency">Rs.</span> 470</div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(19)</span>
-                        </div>
-                    </div>
-                    <a href="https://www.instagram.com/glowbar06" target="_blank" class="product-add-btn">Order on Instagram</a>
-                </div>
+    <!-- INGREDIENTS SECTION -->
+    <section id="ingredients" class="ingredients">
+        <div class="container">
+            <h2 class="section-title">Pure Ingredients</h2>
+            <p style="max-width: 700px; margin: 0 auto;">Each Glow Bar soap is enriched with skin-nourishing natural oils and botanical ingredients that help cleanse, moisturize, and refresh your skin.</p>
+            <div class="ing-tags">
+                <span class="tag">Coconut Oil</span>
+                <span class="tag">Essential Oils</span>
+                <span class="tag">Natural Glycerin</span>
+                <span class="tag">Botanical Extracts</span>
+                <span class="tag">Himalayan Herbs</span>
             </div>
         </div>
     </section>
 
-    <!-- ========== MULTI-PURPOSE USP SECTION ========== -->
-    <section class="section usp" id="usp">
-        <div class="usp-container">
-            <div class="usp-image reveal">
-                <!-- REPLACE with your Instagram photo -->
-                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&h=600&fit=crop" alt="Multi-purpose Glow Bar soap">
-            </div>
-            <div class="usp-content reveal reveal-delay-2">
-                <div class="section-label">Why Glow Bar?</div>
-                <h2>One Bar. <span class="highlight">Three Uses.</span></h2>
-                <p>What makes Glow Bar unique is its multi-purpose formula. A single bar replaces your body soap, facial cleanser, and shampoo — making it the only bar you'll ever need.</p>
-
-                <div class="usp-uses">
-                    <div class="usp-use">
-                        <div class="usp-use-icon"><i class="fas fa-bath"></i></div>
-                        <div class="usp-use-text">
-                            <h4>Body Soap</h4>
-                            <p>Gentle cleansing that leaves your skin soft, moisturized, and naturally refreshed.</p>
-                        </div>
-                    </div>
-                    <div class="usp-use">
-                        <div class="usp-use-icon"><i class="fas fa-face-smile"></i></div>
-                        <div class="usp-use-text">
-                            <h4>Facial Cleanser</h4>
-                            <p>Mild enough for daily facial care — removes impurities without stripping natural oils.</p>
-                        </div>
-                    </div>
-                    <div class="usp-use">
-                        <div class="usp-use-icon"><i class="fas fa-wind"></i></div>
-                        <div class="usp-use-text">
-                            <h4>Hair Wash / Shampoo Bar</h4>
-                            <p>Natural lather cleanses scalp and hair, promoting healthier and shinier locks.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- REVIEWS SECTION -->
+    <section id="reviews">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Customer Love</h2>
+            <div style="max-width: 700px; margin: 0 auto; font-style: italic; color: #555;">
+                <p style="font-size: 1.2rem;">"Finally found a soap that doesn't dry out my skin. I love that I can use it for my hair too! Highly recommended for anyone in Nepal looking for chemical-free options."</p>
+                <h4 style="margin-top: 1rem; font-size: 1rem;">- Happy Customer from Butwal</h4>
             </div>
         </div>
     </section>
 
-    <!-- ========== BENEFITS SECTION ========== -->
-    <section class="section benefits" id="benefits">
-        <div class="section-header reveal">
-            <div class="section-label">The Glow Difference</div>
-            <h2>Benefits of <span class="highlight">Glow Bar</span></h2>
-            <p>Every Glow Bar is packed with nature's finest benefits — designed to nourish, protect, and revitalize your skin from head to toe.</p>
-        </div>
-
-        <div class="benefits-grid">
-            <div class="benefit-card reveal reveal-delay-1">
-                <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
-                <h3>100% Natural</h3>
-                <p>Made entirely from naturally sourced Nepalese ingredients. No synthetic chemicals, ever.</p>
-            </div>
-
-            <div class="benefit-card reveal reveal-delay-2">
-                <div class="benefit-icon"><i class="fas fa-hand-sparkles"></i></div>
-                <h3>Gentle on All Skin</h3>
-                <p>Mild formulation suitable for all skin types including sensitive, dry, and oily skin.</p>
-            </div>
-
-            <div class="benefit-card reveal reveal-delay-3">
-                <div class="benefit-icon"><i class="fas fa-droplet"></i></div>
-                <h3>Deep Moisturizing</h3>
-                <p>Rich natural oils penetrate deep to hydrate, nourish, and maintain your skin's natural moisture barrier.</p>
-            </div>
-
-            <div class="benefit-card reveal reveal-delay-4">
-                <div class="benefit-icon"><i class="fas fa-shield-heart"></i></div>
-                <h3>Chemical-Free</h3>
-                <p>Free from parabens, sulfates, artificial preservatives, and all synthetic additives.</p>
-            </div>
-
-            <div class="benefit-card reveal reveal-delay-1">
-                <div class="benefit-icon"><i class="fas fa-spa"></i></div>
-                <h3>Skin Nourishing</h3>
-                <p>Enriched with botanical extracts and essential oils that feed your skin with vitamins and antioxidants.</p>
-            </div>
-
-            <div class="benefit-card reveal reveal-delay-2">
-                <div class="benefit-icon"><i class="fas fa-recycle"></i></div>
-                <h3>Eco-Friendly</h3>
-                <p>Biodegradable formula with minimal packaging. Good for your skin, great for our planet.</p>
-            </div>
-
-            <div class="benefit-card reveal reveal-delay-3">
-                <div class="benefit-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
-                <h3>Multi-Purpose</h3>
-                <p>One bar for body, face, and hair. Simplify your routine with this all-in-one natural solution.</p>
-            </div>
-
-            <div class="benefit-card reveal reveal-delay-4">
-                <div class="benefit-icon"><i class="fas fa-hands-holding-circle"></i></div>
-                <h3>Handcrafted Care</h3>
-                <p>Every bar is carefully handmade in small batches ensuring premium quality and attention to detail.</p>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Get Your Glow Today</h2>
+                <p>We are based in Butwal, Nepal. We handle all our orders personally through Instagram to ensure you get the right product for your skin.</p>
+                
+                <a href="https://www.instagram.com/glowbar06?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-button">
+                    <i class="fab fa-instagram"></i> Message @glowbar06
+                </a>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">Click above to check prices and delivery options.</p>
             </div>
         </div>
     </section>
 
-    <!-- ========== INGREDIENTS SECTION ========== -->
-    <section class="section ingredients" id="ingredients">
-        <div class="section-header reveal">
-            <div class="section-label">What's Inside</div>
-            <h2>Natural <span class="highlight">Ingredients</span> We Use</h2>
-            <p>We source the finest natural ingredients from Nepal's rich biodiversity. Every component is carefully selected for its skin-loving properties.</p>
-        </div>
-
-        <div class="ingredients-showcase">
-            <div class="ingredient-item reveal reveal-delay-1">
-                <div class="ingredient-icon">🍯</div>
-                <div class="ingredient-text">
-                    <h3>Raw Honey</h3>
-                    <p>Natural humectant that locks in moisture, soothes inflammation, and promotes a radiant glow with antibacterial properties.</p>
-                </div>
-            </div>
-
-            <div class="ingredient-item reveal reveal-delay-2">
-                <div class="ingredient-icon">🥥</div>
-                <div class="ingredient-text">
-                    <h3>Coconut Oil</h3>
-                    <p>Rich in fatty acids, deeply moisturizes and repairs skin barrier. Creates a gentle, luxurious lather for effective cleansing.</p>
-                </div>
-            </div>
-
-            <div class="ingredient-item reveal reveal-delay-3">
-                <div class="ingredient-icon">🌿</div>
-                <div class="ingredient-text">
-                    <h3>Aloe Vera</h3>
-                    <p>Cooling and hydrating gel that calms irritation, accelerates healing, and provides deep nourishment to every skin layer.</p>
-                </div>
-            </div>
-
-            <div class="ingredient-item reveal reveal-delay-4">
-                <div class="ingredient-icon">🌾</div>
-                <div class="ingredient-text">
-                    <h3>Turmeric (Haldi)</h3>
-                    <p>Ancient Nepalese remedy known for its powerful anti-inflammatory, brightening, and antioxidant skin benefits.</p>
-                </div>
-            </div>
-
-            <!-- Center Image -->
-            <div class="ingredients-center-image reveal">
-                <!-- REPLACE with your Instagram photo showing ingredients -->
-                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=400&fit=crop" alt="Glow Bar natural soap ingredients">
-            </div>
-
-            <div class="ingredient-item reveal reveal-delay-1">
-                <div class="ingredient-icon">🌸</div>
-                <div class="ingredient-text">
-                    <h3>Essential Oils</h3>
-                    <p>Lavender, tea tree, and other therapeutic essential oils for natural fragrance, aromatherapy, and skin healing.</p>
-                </div>
-            </div>
-
-            <div class="ingredient-item reveal reveal-delay-2">
-                <div class="ingredient-icon">🌰</div>
-                <div class="ingredient-text">
-                    <h3>Shea Butter</h3>
-                    <p>Ultra-moisturizing butter rich in vitamins A and E. Protects skin elasticity and provides lasting hydration.</p>
-                </div>
-            </div>
-
-            <div class="ingredient-item reveal reveal-delay-3">
-                <div class="ingredient-icon">🍃</div>
-                <div class="ingredient-text">
-                    <h3>Neem Extract</h3>
-                    <p>Powerful antibacterial and antifungal properties that combat acne, blemishes, and skin infections naturally.</p>
-                </div>
-            </div>
-
-            <div class="ingredient-item reveal reveal-delay-4">
-                <div class="ingredient-icon">☕</div>
-                <div class="ingredient-text">
-                    <h3>Coffee Grounds</h3>
-                    <p>Natural exfoliant that boosts circulation, reduces cellulite appearance, and gives skin a smooth, energized texture.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== PROCESS SECTION ========== -->
-    <section class="section process">
-        <div class="section-header reveal">
-            <div class="section-label">Our Process</div>
-            <h2>From Nature to <span class="highlight">Your Skin</span></h2>
-            <p>Every Glow Bar goes through a careful handmade process that preserves the natural goodness of each ingredient.</p>
-        </div>
-
-        <div class="process-timeline">
-            <div class="process-step reveal reveal-delay-1">
-                <div class="process-number">1</div>
-                <div class="process-icon">🌿</div>
-                <h3>Source Ingredients</h3>
-                <p>We carefully select and source natural ingredients from local Nepalese farms and forests.</p>
-            </div>
-
-            <div class="process-step reveal reveal-delay-2">
-                <div class="process-number">2</div>
-                <div class="process-icon">🧪</div>
-                <h3>Blend & Mix</h3>
-                <p>Traditional cold-process method to blend oils, botanicals, and natural extracts perfectly.</p>
-            </div>
-
-            <div class="process-step reveal reveal-delay-3">
-                <div class="process-number">3</div>
-                <div class="process-icon">🤲</div>
-                <h3>Handcraft</h3>
-                <p>Each bar is hand-poured, hand-cut, and shaped with care in our Butwal workshop.</p>
-            </div>
-
-            <div class="process-step reveal reveal-delay-4">
-                <div class="process-number">4</div>
-                <div class="process-icon">✨</div>
-                <h3>Cure & Deliver</h3>
-                <p>Bars cure naturally for 4-6 weeks, then carefully packaged and delivered to you.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== INSTAGRAM GALLERY ========== -->
-    <section class="gallery" id="gallery">
-        <div class="section-header reveal">
-            <div class="section-label">Follow Us</div>
-            <h2>Our <span class="highlight">Instagram</span> Feed</h2>
-            <p>Follow <a href="https://www.instagram.com/glowbar06" target="_blank" style="color: var(--accent); font-weight: 600;">@glowbar06</a> for daily updates, behind-the-scenes, and customer stories.</p>
-        </div>
-
-        <div class="gallery-grid">
-            <!-- REPLACE ALL images below with your actual Instagram photos -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=400&h=400&fit=crop" alt="Glow Bar Instagram">
-                <a href="https://www.instagram.com/glowbar06" target="_blank" class="gallery-overlay"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=400&h=400&fit=crop" alt="Glow Bar Instagram">
-                <a href="https://www.instagram.com/glowbar06" target="_blank" class="gallery-overlay"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=400&h=400&fit=crop" alt="Glow Bar Instagram">
-                <a href="https://www.instagram.com/glowbar06" target="_blank" class="gallery-overlay"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop" alt="Glow Bar Instagram">
-                <a href="https://www.instagram.com/glowbar06" target="_blank" class="gallery-overlay"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1585232004423-244e0e6904e3?w=400&h=400&fit=crop" alt="Glow Bar Instagram">
-                <a href="https://www.instagram.com/glowbar06" target="_blank" class="gallery-overlay"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop" alt="Glow Bar Instagram">
-                <a href="https://www.instagram.com/glowbar06" target="_blank" class="gallery-overlay"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== REVIEWS SECTION ========== -->
-    <section class="section reviews" id="reviews">
-        <div class="section-header reveal">
-            <div class="section-label">Testimonials</div>
-            <h2>What Our Customers <span class="highlight">Say</span></h2>
-            <p>Real stories from real people who have experienced the Glow Bar difference. Their skin, their words.</p>
-        </div>
-
-        <div class="reviews-grid">
-            <div class="review-card reveal reveal-delay-1">
-                <div class="review-quote">"</div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"I've been using the Turmeric & Honey bar for a month now and my skin has never looked better! The glow is real. I love that it's completely natural and made right here in Nepal. Best soap I've ever used!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">S</div>
-                    <div class="review-author-info">
-                        <h4>Srijana Sharma</h4>
-                        <p>Butwal, Nepal</p>
-                        <div class="review-verified"><i class="fas fa-circle-check"></i> Verified Purchase</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card reveal reveal-delay-2">
-                <div class="review-quote">"</div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"The fact that I can use one bar for my body, face AND hair is amazing! It's so convenient for travel too. My sensitive skin has had zero irritation. Glow Bar is now a permanent part of my daily routine."</p>
-                <div class="review-author">
-                    <div class="review-avatar">R</div>
-                    <div class="review-author-info">
-                        <h4>Rajesh Poudel</h4>
-                        <p>Kathmandu, Nepal</p>
-                        <div class="review-verified"><i class="fas fa-circle-check"></i> Verified Purchase</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card reveal reveal-delay-3">
-                <div class="review-quote">"</div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"My whole family uses Glow Bar now! The kids love the Coffee Scrub bar and I adore the Lavender Calm. No chemicals, beautiful fragrance, and my skin feels so soft. Truly the best Nepalese handmade soap! 🌿"</p>
-                <div class="review-author">
-                    <div class="review-avatar">A</div>
-                    <div class="review-author-info">
-                        <h4>Anita Gurung</h4>
-                        <p>Pokhara, Nepal</p>
-                        <div class="review-verified"><i class="fas fa-circle-check"></i> Verified Purchase</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card reveal reveal-delay-1">
-                <div class="review-quote">"</div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <p class="review-text">"I switched from commercial soaps to Glow Bar and the difference is night and day. My acne has cleared up significantly. The Charcoal Detox bar is my holy grail product. Highly recommend to anyone!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">P</div>
-                    <div class="review-author-info">
-                        <h4>Priya Thapa</h4>
-                        <p>Bhairahawa, Nepal</p>
-                        <div class="review-verified"><i class="fas fa-circle-check"></i> Verified Purchase</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card reveal reveal-delay-2">
-                <div class="review-quote">"</div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"Bought this as a gift for my mother and she absolutely loves it! The packaging is beautiful, the soap smells divine, and it lasts surprisingly long. Supporting a local Nepali brand feels great too. 💚"</p>
-                <div class="review-author">
-                    <div class="review-avatar">B</div>
-                    <div class="review-author-info">
-                        <h4>Bishal KC</h4>
-                        <p>Chitwan, Nepal</p>
-                        <div class="review-verified"><i class="fas fa-circle-check"></i> Verified Purchase</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card reveal reveal-delay-3">
-                <div class="review-quote">"</div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p class="review-text">"I was skeptical about using soap on my hair, but the Aloe Vera bar left my hair so smooth and shiny! No more carrying multiple products. Glow Bar has simplified my entire skincare routine. Pure magic!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">M</div>
-                    <div class="review-author-info">
-                        <h4>Manisha Rai</h4>
-                        <p>Dharan, Nepal</p>
-                        <div class="review-verified"><i class="fas fa-circle-check"></i> Verified Purchase</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== CTA SECTION ========== -->
-    <section class="cta-section">
-        <div class="cta-content reveal">
-            <h2>Join the <span class="serif-italic">Glow</span> Family</h2>
-            <p>Subscribe to get exclusive offers, new product launches, and natural skincare tips delivered straight to your inbox.</p>
-            <form class="cta-form" onsubmit="handleSubscribe(event)">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- ========== CONTACT SECTION ========== -->
-    <section class="section contact" id="contact">
-        <div class="section-header reveal">
-            <div class="section-label">Get in Touch</div>
-            <h2>Contact <span class="highlight">Glow Bar</span></h2>
-            <p>Have questions, want to place a bulk order, or just say hello? We'd love to hear from you!</p>
-        </div>
-
-        <div class="contact-container">
-            <div class="contact-info reveal">
-                <h3>Let's <span class="serif-italic">Connect</span></h3>
-                <p>Whether you want to know more about our products, need skincare advice, or want to collaborate — our doors (and DMs) are always open.</p>
-
-                <div class="contact-details">
-                    <div class="contact-detail">
-                        <div class="contact-detail-icon">
-                            <i class="fas fa-location-dot"></i>
-                        </div>
-                        <div class="contact-detail-text">
-                            <h4>Our Location</h4>
-                            <p>Butwal, Rupandehi<br>Lumbini Province, Nepal</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail">
-                        <div class="contact-detail-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-detail-text">
-                            <h4>Email Us</h4>
-                            <p>hello@glowbar.com.np<br>orders@glowbar.com.np</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail">
-                        <div class="contact-detail-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-detail-text">
-                            <h4>Call Us</h4>
-                            <p>+977-9800000000<br>Sun-Fri: 10AM - 6PM</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail">
-                        <div class="contact-detail-icon">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="contact-detail-text">
-                            <h4>Instagram (DM us!)</h4>
-                            <p><a href="https://www.instagram.com/glowbar06" target="_blank" style="color: var(--primary); font-weight: 600;">@glowbar06</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-social">
-                    <a href="https://www.instagram.com/glowbar06" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-
-            <div class="contact-form-wrapper reveal reveal-delay-2">
-                <h3>Send Us a <span class="serif-italic">Message</span></h3>
-                <form onsubmit="handleContact(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" placeholder="Your first name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" placeholder="Your last name">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="you@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="+977-98XXXXXXXX">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject">
-                            <option value="">Select a topic</option>
-                            <option value="order">Place an Order</option>
-                            <option value="bulk">Bulk / Wholesale Order</option>
-                            <option value="product">Product Inquiry</option>
-                            <option value="collaboration">Collaboration</option>
-                            <option value="feedback">Feedback</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" placeholder="Tell us how we can help you..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="form-submit">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="nav-logo">
-                    <div class="nav-logo-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="nav-logo-text">GLOW<span>BAR</span></div>
-                </div>
-                <p>Premium Nepalese handmade soaps crafted with love in Butwal, Nepal. 100% natural, chemical-free, and designed for your body, face, and hair. True glow comes from nature.</p>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/glowbar06" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#products">Our Products</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#ingredients">Ingredients</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Return & Refund</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Track Order</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column footer-newsletter">
-                <h4>Stay Updated</h4>
-                <p>Subscribe for exclusive offers, new product alerts, and natural skincare tips from the hills of Nepal.</p>
-                <form class="footer-newsletter-form" onsubmit="handleSubscribe(event)">
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
-                </form>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 Glow Bar Nepal. All rights reserved. Made with 🌿 in Butwal.</p>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Sitemap</a>
-            </div>
-        </div>
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2023 Glow Bar. Handmade with Love in Butwal, Nepal.</p>
     </footer>
-
-    <!-- ========== BACK TO TOP BUTTON ========== -->
-    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- ========== WHATSAPP FLOAT ========== -->
-    <a href="https://wa.me/9779800000000?text=Hi%20Glow%20Bar!%20I'm%20interested%20in%20your%20handmade%20soaps." target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- ========== JAVASCRIPT ========== -->
-    <script>
-        // ===== LOADER =====
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 2200);
-        });
-
-        // ===== NAVBAR SCROLL =====
-        const navbar = document.getElementById('navbar');
-        const backToTop = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-
-            if (scrollY > 80) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            if (scrollY > 600) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        // ===== MOBILE MENU =====
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        function closeMobileMenu() {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // ===== SCROLL REVEAL ANIMATIONS =====
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const offsetTop = target.offsetTop - 80;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // ===== FORM HANDLERS =====
-        function handleSubscribe(e) {
-            e.preventDefault();
-            const input = e.target.querySelector('input[type="email"]');
-            alert('🌿 Thank you for subscribing! Welcome to the Glow Bar family, ' + input.value + '!');
-            input.value = '';
-        }
-
-        function handleContact(e) {
-            e.preventDefault();
-            const name = document.getElementById('firstName').value;
-            alert('🌿 Thank you, ' + name + '! Your message has been sent. We\'ll get back to you within 24 hours.\n\nYou can also DM us on Instagram @glowbar06 for a faster response!');
-            e.target.reset();
-        }
-
-        // ===== COUNTER ANIMATION =====
-        function animateCounters() {
-            const counters = document.querySelectorAll('.hero-stat-number');
-            counters.forEach(counter => {
-                const text = counter.textContent;
-                if (text.includes('+')) {
-                    const target = parseInt(text);
-                    let current = 0;
-                    const increment = target / 60;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            counter.textContent = target + '+';
-                            clearInterval(timer);
-                        } else {
-                            counter.textContent = Math.floor(current) + '+';
-                        }
-                    }, 30);
-                }
-            });
-        }
-
-        // Trigger counter animation when hero is visible
-        setTimeout(animateCounters, 2500);
-
-        // ===== ACTIVE NAV LINK ON SCROLL =====
-        const sections = document.querySelectorAll('section[id]');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 200;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.style.color = '';
-                if (link.getAttribute('href') === '#' + current) {
-                    link.style.color = 'var(--primary)';
-                }
-            });
-        });
-
-        // ===== PARALLAX EFFECT ON HERO =====
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const heroImage = document.querySelector('.hero-image-main');
-            if (heroImage && scrollY < window.innerHeight) {
-                heroImage.style.transform = `translateY(${scrollY * 0.08}px)`;
-            }
-        });
-
-        console.log('%c🌿 Glow Bar Nepal — Pure by Nature. Crafted by Hand.', 
-            'color: #4a7c59; font-size: 18px; font-weight: bold; font-family: serif;');
-        console.log('%cVisit us: instagram.com/glowbar06', 
-            'color: #c8956c; font-size: 12px;');
-    </script>
 
 </body>
 </html>
