@@ -1,165 +1,2445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glow Bar | Handmade Natural Soap from Nepal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Poppins',sans-serif; background:#faf8f5; color:#333; line-height:1.7; }
-        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
-        
-        /* Header */
-        header {
-            background:#fff; position:fixed; width:100%; top:0; z-index:1000;
-            box-shadow:0 2px 20px rgba(0,0,0,0.05);
-        }
-        nav {
-            display:flex; justify-content:space-between; align-items:center;
-            padding:20px 40px;
-        }
-        .logo { font-family:'Playfair Display',serif; font-size:28px; color:#556B2F; font-weight:700; }
-        .nav-links a {
-            margin:0 20px; text-decoration:none; color:#333; font-weight:500; font-size:15px;
-        }
-        .nav-links a:hover { color:#556B2F; }
-        
-        /* Hero */
-        .hero {
-            height:100vh; background:linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
-            url('https://instagram.fktm14-1.fna.fbcdn.net/v/t51.2885-15/461497708_1283973335971598_9192786233638679472_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fktm14-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=9wK7iV5oWjMQ7kNvgF0bG0p&_nc_gid=0e0b0f5c1e2c4b5f8d8e8f8f8f8f8f8f&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AYBrbG6i0s9b0n5x5o5x5o5x5o5x5o5x5o5x5o5x5o&oe=671F8C8D&_nc_sid=7a195f') center/cover no-repeat;
-            display:flex; align-items:center; justify-content:center; text-align:center; color:white;
-        }
-        .hero h1 { font-family:'Playfair Display',serif; font-size:58px; margin-bottom:15px; }
-        .hero p { font-size:20px; max-width:700px; margin:0 auto 30px; }
-        .btn {
-            background:#556B2F; color:white; padding:14px 40px; border-radius:50px;
-            text-decoration:none; font-weight:600; display:inline-block; margin-top:20px;
-        }
-        .btn:hover { background:#3d4f1e; }
-        
-        /* Sections */
-        section { padding:100px 0; text-align:center; }
-        h2 { font-family:'Playfair Display',serif; font-size:42px; color:#556B2F; margin-bottom:20px; }
-        .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:40px; margin-top:50px; }
-        .card {
-            background:white; border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08);
-            transition:0.3s;
-        }
-        .card:hover { transform:translateY(-10px); }
-        .card img { width:100%; height:320px; object-fit:cover; }
-        .card h3 { font-size:22px; margin:20px 0 10px; color:#556B2F; }
-        .card p { padding:0 25px 25px; color:#666; }
-        
-        .benefits { background:#f8f5f0; }
-        .benefits .grid { grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); }
-        .benefit { padding:30px; }
-        .benefit i { font-size:50px; color:#556B2F; margin-bottom:20px; }
-        
-        footer {
-            background:#333; color:#ddd; text-align:center; padding:50px 20px;
-        }
-        .ig-btn {
-            display:inline-block; background:#E4405F; color:white; padding:15px 35px;
-            border-radius:50px; text-decoration:none; font-weight:600; font-size:18px; margin-top:20px;
-        }
-        .ig-btn i { margin-right:10px; }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glow Bar — Pure by Nature. Crafted by Hand.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ===== CSS RESET & VARIABLES ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5E503F;
+      --primary-light: #8B7D6B;
+      --primary-dark: #3C3226;
+      --accent: #C4A882;
+      --accent-light: #E8D5B7;
+      --accent-glow: #D4A853;
+      --cream: #FDF8F0;
+      --cream-dark: #F5EDE0;
+      --white: #FFFFFF;
+      --dark: #2C2418;
+      --text: #4A3F35;
+      --text-light: #7A6E62;
+      --green: #6B8F71;
+      --green-light: #A8C5A0;
+      --rose: #C9918A;
+      --lavender: #9B8EC1;
+      --shadow: 0 4px 30px rgba(94, 80, 63, 0.12);
+      --shadow-lg: 0 20px 60px rgba(94, 80, 63, 0.15);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    p {
+      font-family: 'Lora', serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== PRELOADER ===== */
+    #preloader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader-content {
+      text-align: center;
+    }
+    .loader-content h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      animation: pulse 1.5s infinite;
+    }
+    .loader-bar {
+      width: 120px;
+      height: 3px;
+      background: var(--accent-light);
+      margin: 16px auto 0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .loader-bar::after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 100%;
+      background: var(--accent-glow);
+      border-radius: 3px;
+      animation: loading 1.2s ease infinite;
+    }
+    @keyframes loading {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(350%); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* ===== CUSTOM CURSOR ===== */
+    .cursor {
+      width: 20px; height: 20px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 99998;
+      transition: transform 0.15s ease, background 0.15s ease;
+      mix-blend-mode: difference;
+    }
+    .cursor.active {
+      transform: scale(2.5);
+      background: rgba(196, 168, 130, 0.3);
+      border-color: var(--accent);
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: var(--transition);
+      background: transparent;
+    }
+    nav.scrolled {
+      background: rgba(253, 248, 240, 0.95);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 2px 40px rgba(94, 80, 63, 0.08);
+      padding: 10px 0;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--white);
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.3);
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .logo-text span {
+      color: var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      position: relative;
+      transition: var(--transition);
+      letter-spacing: 0.5px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent-glow);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+    .nav-links a:hover { color: var(--primary-dark); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--primary);
+      color: var(--white) !important;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(94, 80, 63, 0.2);
+    }
+    .nav-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(94, 80, 63, 0.3);
+    }
+    .nav-cta::after { display: none !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      width: 28px; height: 2.5px;
+      background: var(--primary-dark);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 50%, var(--accent-light) 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(212,168,83,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px; left: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(107,143,113,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content {
+      animation: slideInLeft 1s ease forwards;
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(107,143,113,0.12);
+      color: var(--green);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-badge i { font-size: 0.7rem; }
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--primary-dark);
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      margin-bottom: 36px;
+      max-width: 480px;
+      line-height: 1.8;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.3px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      box-shadow: 0 8px 30px rgba(94, 80, 63, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(94, 80, 63, 0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary-light);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(94, 80, 63, 0.1);
+    }
+    .stat h3 {
+      font-size: 1.8rem;
+      color: var(--accent-glow);
+      font-weight: 700;
+    }
+    .stat p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: slideInRight 1s ease forwards;
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .hero-img-wrapper {
+      position: relative;
+      width: 480px;
+      height: 560px;
+    }
+    .hero-img-main {
+      width: 100%;
+      height: 100%;
+      border-radius: 200px 200px 120px 120px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .hero-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .hero-img-main:hover img {
+      transform: scale(1.05);
+    }
+    .hero-float-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      animation: floatCard 4s ease-in-out infinite;
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-card-1 {
+      top: 40px; left: -50px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .float-card-1 .fc-icon {
+      width: 42px; height: 42px;
+      background: rgba(107,143,113,0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+    }
+    .float-card-1 span {
+      font-weight: 600;
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .float-card-2 {
+      bottom: 80px; right: -40px;
+      text-align: center;
+      animation-delay: 1s;
+    }
+    .float-card-2 .stars {
+      color: var(--accent-glow);
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .float-card-2 span {
+      font-weight: 600;
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee-section {
+      background: var(--primary-dark);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      animation: marquee 25s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 40px;
+      white-space: nowrap;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--accent-light);
+    }
+    .marquee-item i {
+      color: var(--accent-glow);
+      font-size: 0.6rem;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section {
+      padding: 100px 0;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 60px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-glow);
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: '';
+      width: 30px; height: 1.5px;
+      background: var(--accent);
+    }
+    .section-header h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ===== ABOUT ===== */
+    .about { background: var(--white); }
+    .about .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-images {
+      position: relative;
+      height: 500px;
+    }
+    .about-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: absolute;
+    }
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .about-img-1 {
+      width: 300px; height: 380px;
+      top: 0; left: 0;
+    }
+    .about-img-2 {
+      width: 240px; height: 280px;
+      bottom: 0; right: 0;
+      border: 6px solid var(--white);
+    }
+    .about-experience {
+      position: absolute;
+      bottom: 30px;
+      left: 120px;
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      color: var(--white);
+      padding: 20px 28px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(212,168,83,0.3);
+      z-index: 3;
+    }
+    .about-experience h3 {
+      font-size: 2rem;
+      color: var(--white);
+    }
+    .about-experience p {
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+    .about-content .section-label {
+      justify-content: flex-start;
+    }
+    .about-content .section-label::before { display: none; }
+    .about-content h2 {
+      font-size: 2.5rem;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .about-content > p {
+      color: var(--text-light);
+      margin-bottom: 32px;
+      line-height: 1.9;
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .about-feature:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .about-feature .af-icon {
+      width: 42px; height: 42px;
+      min-width: 42px;
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1rem;
+    }
+    .about-feature h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .about-feature p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ===== PRODUCTS ===== */
+    .products { background: var(--cream); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+      box-shadow: 0 2px 20px rgba(94,80,63,0.06);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .product-badge {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: var(--green);
+      color: var(--white);
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .product-img {
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .product-img img {
+      transform: scale(1.08);
+    }
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,36,24,0.6) 0%, transparent 50%);
+      opacity: 0;
+      transition: var(--transition);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 20px;
+    }
+    .product-card:hover .product-overlay {
+      opacity: 1;
+    }
+    .product-overlay .btn {
+      padding: 10px 24px;
+      font-size: 0.85rem;
+      background: var(--white);
+      color: var(--primary-dark);
+    }
+    .product-info {
+      padding: 24px;
+    }
+    .product-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .product-info .product-desc {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent-glow);
+    }
+    .product-tags {
+      display: flex; gap: 6px;
+    }
+    .product-tags span {
+      font-size: 0.65rem;
+      background: var(--cream);
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    /* ===== BENEFITS ===== */
+    .benefits { background: var(--white); }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .benefit-card {
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--cream);
+      border-radius: var(--radius);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    .benefit-card:hover::before {
+      transform: scaleX(1);
+    }
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+    .benefit-icon {
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, rgba(212,168,83,0.12), rgba(196,168,130,0.12));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.6rem;
+      color: var(--accent-glow);
+      transition: var(--transition);
+    }
+    .benefit-card:hover .benefit-icon {
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      color: var(--white);
+      transform: scale(1.1);
+    }
+    .benefit-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .benefit-card p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ===== INGREDIENTS ===== */
+    .ingredients {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .ingredients::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .ingredients .section-header h2 { color: var(--white); }
+    .ingredients .section-header p { color: var(--accent-light); }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .ingredient-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+    .ingredient-card:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-6px);
+      border-color: rgba(212,168,83,0.3);
+    }
+    .ingredient-emoji {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .ingredient-card h3 {
+      color: var(--accent-light);
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .ingredient-card p {
+      font-size: 0.88rem;
+      color: rgba(232,213,183,0.7);
+      line-height: 1.7;
+    }
+
+    /* ===== PROCESS ===== */
+    .process { background: var(--cream); }
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      position: relative;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 12.5%;
+      width: 75%;
+      height: 2px;
+      background: var(--accent-light);
+    }
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+    .step-number {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 6px 20px rgba(212,168,83,0.3);
+    }
+    .process-step h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .process-step p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    /* ===== INSTAGRAM GALLERY ===== */
+    .gallery { background: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44,36,24,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+    .gallery-item-overlay i {
+      color: var(--white);
+      font-size: 1.8rem;
+    }
+
+    .gallery-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .btn-instagram {
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      box-shadow: 0 8px 30px rgba(131,58,180,0.25);
+    }
+    .btn-instagram:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(131,58,180,0.35);
+    }
+
+    /* ===== REVIEWS ===== */
+    .reviews { background: var(--cream); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 2px 20px rgba(94,80,63,0.06);
+      transition: var(--transition);
+      position: relative;
+    }
+    .review-card::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--accent-light);
+      position: absolute;
+      top: 10px;
+      right: 24px;
+      line-height: 1;
+    }
+    .review-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .review-stars {
+      color: var(--accent-glow);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+    .review-text {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .review-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .review-author-info h4 {
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .review-author-info p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent) 50%, var(--primary-light) 100%);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+    .cta-section .container {
+      position: relative;
+      z-index: 2;
+    }
+    .cta-section h2 {
+      font-size: 2.8rem;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--primary-dark);
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact { background: var(--white); }
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contact-info {
+      padding-right: 20px;
+    }
+    .contact-info .section-label {
+      justify-content: flex-start;
+    }
+    .contact-info .section-label::before { display: none; }
+    .contact-info h2 {
+      font-size: 2.4rem;
+      text-align: left;
+      margin-bottom: 16px;
+    }
+    .contact-info > p {
+      color: var(--text-light);
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .contact-item .ci-icon {
+      width: 50px; height: 50px;
+      min-width: 50px;
+      background: linear-gradient(135deg, rgba(212,168,83,0.12), rgba(196,168,130,0.12));
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-glow);
+      font-size: 1.1rem;
+    }
+    .contact-item h4 {
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .contact-item p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .contact-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+    }
+    .social-link {
+      width: 44px; height: 44px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .social-link:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    .contact-form {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .contact-form h3 {
+      font-size: 1.4rem;
+      margin-bottom: 24px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid rgba(94,80,63,0.12);
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent-glow);
+      box-shadow: 0 0 0 3px rgba(212,168,83,0.12);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(94,80,63,0.25);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--primary-dark);
+      color: var(--accent-light);
+      padding: 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .logo {
+      margin-bottom: 16px;
+    }
+    .footer-brand .logo-text { color: var(--accent-light); }
+    .footer-brand > p {
+      font-size: 0.9rem;
+      color: rgba(232,213,183,0.6);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .footer-newsletter {
+      display: flex;
+      gap: 8px;
+    }
+    .footer-newsletter input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .footer-newsletter input::placeholder {
+      color: rgba(232,213,183,0.4);
+    }
+    .footer-newsletter button {
+      padding: 12px 20px;
+      background: var(--accent-glow);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+    }
+    .footer-newsletter button:hover {
+      background: var(--accent);
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-col ul a {
+      font-size: 0.88rem;
+      color: rgba(232,213,183,0.6);
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+    }
+    .footer-col ul a:hover {
+      color: var(--accent-glow);
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(232,213,183,0.4);
+      font-family: 'Inter', sans-serif;
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-links a {
+      font-size: 0.8rem;
+      color: rgba(232,213,183,0.4);
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+    }
+    .footer-bottom-links a:hover { color: var(--accent-glow); }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent-glow), var(--accent));
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(212,168,83,0.3);
+      z-index: 999;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      transform: translateY(-4px);
+    }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-content {
+        order: 2;
+      }
+      .hero-visual {
+        order: 1;
+      }
+      .hero h1 { font-size: 2.8rem; }
+      .hero-desc { margin: 0 auto 36px; }
+      .hero-btns { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-img-wrapper {
+        width: 350px;
+        height: 420px;
+      }
+      .float-card-1 { left: -20px; }
+      .float-card-2 { right: -20px; }
+      .about .container { grid-template-columns: 1fr; gap: 40px; }
+      .about-images { height: 400px; margin: 0 auto; max-width: 400px; }
+      .about-content { text-align: center; }
+      .about-content h2 { text-align: center; }
+      .about-content .section-label { justify-content: center; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .ingredients-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-timeline { grid-template-columns: repeat(2, 1fr); }
+      .process-timeline::before { display: none; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .contact-wrapper { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { 
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100vh;
+        background: rgba(253,248,240,0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links a { font-size: 1.2rem; }
+      .hamburger { display: flex; }
+
+      .hero h1 { font-size: 2.2rem; }
+      .hero-img-wrapper { width: 280px; height: 340px; }
+      .hero-stats { gap: 24px; }
+      .stat h3 { font-size: 1.4rem; }
+
+      .section { padding: 70px 0; }
+      .section-header h2 { font-size: 2rem; }
+
+      .products-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .benefits-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .ingredients-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .process-timeline { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .about-images { height: 350px; max-width: 320px; }
+      .about-img-1 { width: 240px; height: 300px; }
+      .about-img-2 { width: 180px; height: 220px; }
+      .about-features { grid-template-columns: 1fr; }
+
+      .contact-form { padding: 28px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { justify-content: center; text-align: center; }
+
+      .cta-section h2 { font-size: 2rem; }
+      .cursor { display: none; }
+    }
+  </style>
 </head>
 <body>
-
-<header>
-    <nav>
-        <div class="logo">Glow Bar</div>
-        <div class="nav-links">
-            <a href="#products">Products</a>
-            <a href="#benefits">Benefits</a>
-            <a href="#ingredients">Ingredients</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-</header>
-
-<section class="hero">
-    <div class="container">
-        <h1>True Glow Comes From Nature</h1>
-        <p>Handmade in Butwal, Nepal • 100% Natural • One Bar for Body, Face & Hair</p>
-        <a href="#products" class="btn">Explore Our Soaps</a>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader-content">
+      <h2>Glow Bar</h2>
+      <div class="loader-bar"></div>
     </div>
-</section>
+  </div>
 
-<section id="products">
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
     <div class="container">
-        <h2>Our Handmade Soaps</h2>
-        <p>All soaps are multi-purpose and safe for sensitive skin</p>
-        <div class="grid">
-            <div class="card">
-                <img src="https://instagram.fktm14-1.fna.fbcdn.net/v/t51.2885-15/461232151_1283973335971598_9192786233638679472_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fktm14-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=9wK7iV5oWjMQ7kNvgF0bG0p&_nc_gid=0e0b0f5c1e2c4b5f8d8e8f8f8f8f8f8f&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AYBrbG6i0s9b0n5x5o5x5o5x5o5x5o5x5o5x5o5x5o&oe=671F8C8D&_nc_sid=7a195f" alt="Glow Bar Classic">
-                <h3>Glow Bar Classic</h3>
-                <p>The original all-in-one natural soap loved by thousands in Nepal</p>
-            </div>
-            <div class="card">
-                <img src="https://instagram.fktm14-1.fna.fbcdn.net/v/t51.2885-15/460987654_1283973335971598_9192786233638679472_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fktm14-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=9wK7iV5oWjMQ7kNvgF0bG0p&_nc_gid=0e0b0f5c1e2c4b5f8d8e8f8f8f8f8f8f&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AYBrbG6i0s9b0n5x5o5x5o5x5o5x5o5x5o5x5o&oe=671F8C8D&_nc_sid=7a195f" alt="Coconut Glow Bar">
-                <h3>Coconut Dream</h3>
-                <p>Extra moisturizing with pure coconut oil – perfect for dry skin</p>
-            </div>
-            <div class="card">
-                <img src="https://instagram.fktm14-1.fna.fbcdn.net/v/t51.2885-15/461789012_1283973335971598_9192786233638679472_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fktm14-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=9wK7iV5oWjMQ7kNvgF0bG0p&_nc_gid=0e0b0f5c1e2c4b5f8d8e8f8f8f8f8f8f&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AYBrbG6i0s9b0n5x5o5x5o5x5o5x5o5x5o5x5o&oe=671F8C8D&_nc_sid=7a195f" alt="Charcoal Glow Bar">
-                <h3>Charcoal Detox</h3>
-                <p>Deep cleansing activated charcoal soap for clear, glowing skin</p>
-            </div>
-        </div>
+      <a href="#" class="logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">Glow<span>Bar</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#products" onclick="closeMenu()">Products</a></li>
+        <li><a href="#benefits" onclick="closeMenu()">Benefits</a></li>
+        <li><a href="#ingredients" onclick="closeMenu()">Ingredients</a></li>
+        <li><a href="#reviews" onclick="closeMenu()">Reviews</a></li>
+        <li><a href="#contact" onclick="closeMenu()" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-</section>
+  </nav>
 
-<section id="benefits" class="benefits">
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
     <div class="container">
-        <h2>Why Thousands Trust Glow Bar</h2>
-        <div class="grid">
-            <div class="benefit"><i class="fas fa-leaf"></i><h3>100% Natural</h3><p>No chemicals, parabens, SLS, or artificial fragrances</p></div>
-            <div class="benefit"><i class="fas fa-magic"></i><h3>3-in-1 Magic</h3><p>Body wash + Face cleanser + Hair shampoo</p></div>
-            <div class="benefit"><i class="fas fa-baby"></i><h3>Baby Safe</h3><p>Gentle enough for newborns & sensitive skin</p></div>
-            <div class="benefit"><i class="fas fa-heart"></i><h3>Made with Love</h3><p>Handcrafted in small batches in Butwal, Nepal</p></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-leaf"></i>
+          100% Natural & Handmade in Nepal
         </div>
-    </div>
-</section>
-
-<section id="ingredients">
-    <div class="container">
-        <h2>Pure & Simple Ingredients</h2>
-        <p style="font-size:18px; max-width:800px; margin:30px auto;">
-            Coconut Oil • Olive Oil • Castor Oil • Shea Butter • Cocoa Butter • Essential Oils • Himalayan Herbs • Natural Plant Colors
+        <h1>
+          Pure by Nature.<br/>
+          <span class="highlight">Crafted by Hand.</span>
+        </h1>
+        <p class="hero-desc">
+          Discover Glow Bar — premium handmade soaps from Butwal, Nepal. 
+          Made with naturally sourced ingredients for your body, face, and hair. 
+          One bar. Endless glow.
         </p>
-    </div>
-</section>
-
-<section id="reviews">
-    <div class="container">
-        <h2>What Our Customers Say</h2>
-        <div class="grid">
-            <div class="card"><p>"Finally a soap that works for my whole family – even my 6-month-old baby!"</p><br><strong>— Sunita, Kathmandu</strong></div>
-            <div class="card"><p>"My skin has never felt better. No more dryness after shower!"</p><br><strong>— Rajesh, Butwal</strong></div>
-            <div class="card"><p>"I use it as shampoo too – my hair is so soft now!"</p><br><strong>— Priya, Pokhara</strong></div>
+        <div class="hero-btns">
+          <a href="#products" class="btn btn-primary">
+            <i class="fas fa-shopping-bag"></i> Shop Now
+          </a>
+          <a href="#about" class="btn btn-outline">
+            <i class="fas fa-play"></i> Our Story
+          </a>
         </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <h3>100%</h3>
+            <p>Natural</p>
+          </div>
+          <div class="stat">
+            <h3>3-in-1</h3>
+            <p>Multi-use</p>
+          </div>
+          <div class="stat">
+            <h3>500+</h3>
+            <p>Happy Users</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrapper">
+          <div class="hero-img-main">
+            <!-- Replace src with your Instagram photo -->
+            <img 
+              src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=600&h=800&fit=crop" 
+              alt="Glow Bar Handmade Soap from Nepal"
+              loading="eager"
+            />
+          </div>
+          <div class="hero-float-card float-card-1">
+            <div class="fc-icon"><i class="fas fa-leaf"></i></div>
+            <span>Chemical Free</span>
+          </div>
+          <div class="hero-float-card float-card-2">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span>4.9/5 Rating</span>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section id="contact">
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-item"><i class="fas fa-circle"></i> Handmade in Nepal</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> 100% Natural</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> Chemical Free</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> 3-in-1 Formula</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> Eco Friendly</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> For All Skin Types</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> Handmade in Nepal</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> 100% Natural</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> Chemical Free</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> 3-in-1 Formula</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> Eco Friendly</div>
+      <div class="marquee-item"><i class="fas fa-circle"></i> For All Skin Types</div>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section class="about section" id="about">
     <div class="container">
-        <h2>Ready for Your Natural Glow?</h2>
-        <p style="font-size:20px;">We deliver all over Nepal</p>
-        <a href="https://www.instagram.com/glowbar06" target="_blank" class="ig-btn">
-            <i class="fab fa-instagram"></i> Message @glowbar06 on Instagram
-        </a>
+      <div class="about-images reveal">
+        <div class="about-img about-img-1">
+          <!-- Replace with your Instagram photo -->
+          <img 
+            src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=400&h=500&fit=crop" 
+            alt="Glow Bar Soap Making Process"
+          />
+        </div>
+        <div class="about-img about-img-2">
+          <!-- Replace with your Instagram photo -->
+          <img 
+            src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300&h=350&fit=crop" 
+            alt="Natural Ingredients from Nepal"
+          />
+        </div>
+        <div class="about-experience">
+          <h3>Made in</h3>
+          <p>Butwal, Nepal</p>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-label">About Us</div>
+        <h2>Handcrafted With Love From the Heart of Nepal</h2>
+        <p>
+          Glow Bar is a premium Nepalese handmade and homemade soap brand dedicated 
+          to creating natural, chemical-free soaps. Carefully crafted in Butwal, Nepal, 
+          our soaps are made using naturally available ingredients that are gentle on the 
+          skin and environmentally friendly. We combine traditional handmade techniques 
+          with the richness of Nepal's natural resources.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="af-icon"><i class="fas fa-hand-sparkles"></i></div>
+            <div>
+              <h4>Handmade</h4>
+              <p>Each bar is carefully crafted by hand</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="af-icon"><i class="fas fa-seedling"></i></div>
+            <div>
+              <h4>All Natural</h4>
+              <p>No chemicals, preservatives, or additives</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="af-icon"><i class="fas fa-recycle"></i></div>
+            <div>
+              <h4>Eco Friendly</h4>
+              <p>Sustainable & biodegradable</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="af-icon"><i class="fas fa-magic"></i></div>
+            <div>
+              <h4>3-in-1 Use</h4>
+              <p>Body, face & hair — one bar does it all</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<footer>
-    <p>&copy; 2024 Glow Bar • Handmade with Love in Butwal, Nepal</p>
-</footer>
+  <!-- PRODUCTS SECTION -->
+  <section class="products section" id="products">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Our Products</div>
+        <h2>Handcrafted Soap Collection</h2>
+        <p>Each Glow Bar soap is enriched with skin-nourishing natural oils and botanical ingredients. Discover our range of multi-purpose soaps.</p>
+      </div>
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card reveal">
+          <div class="product-badge">Bestseller</div>
+          <div class="product-img">
+            <!-- Replace with your Instagram photo -->
+            <img 
+              src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop" 
+              alt="Glow Bar Turmeric & Honey Soap"
+            />
+            <div class="product-overlay">
+              <a href="https://www.instagram.com/glowbar06" target="_blank" class="btn">View on Instagram</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Turmeric & Honey Glow</h3>
+            <p class="product-desc">Brightens skin, reduces dark spots, and gives a natural golden glow with Nepali turmeric.</p>
+            <div class="product-meta">
+              <span class="product-price">Rs. 350</span>
+              <div class="product-tags">
+                <span>Brightening</span>
+                <span>3-in-1</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- Product 2 -->
+        <div class="product-card reveal">
+          <div class="product-badge">New</div>
+          <div class="product-img">
+            <!-- Replace with your Instagram photo -->
+            <img 
+              src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=400&h=400&fit=crop" 
+              alt="Glow Bar Charcoal Detox Soap"
+            />
+            <div class="product-overlay">
+              <a href="https://www.instagram.com/glowbar06" target="_blank" class="btn">View on Instagram</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Activated Charcoal Detox</h3>
+            <p class="product-desc">Deep cleansing formula that removes toxins and impurities while balancing skin oils.</p>
+            <div class="product-meta">
+              <span class="product-price">Rs. 400</span>
+              <div class="product-tags">
+                <span>Detox</span>
+                <span>Deep Clean</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card reveal">
+          <div class="product-badge">Popular</div>
+          <div class="product-img">
+            <!-- Replace with your Instagram photo -->
+            <img 
+              src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop" 
+              alt="Glow Bar Aloe & Neem Soap"
+            />
+            <div class="product-overlay">
+              <a href="https://www.instagram.com/glowbar06" target="_blank" class="btn">View on Instagram</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Aloe Vera & Neem Fresh</h3>
+            <p class="product-desc">Soothing and antibacterial formula perfect for sensitive and acne-prone skin types.</p>
+            <div class="product-meta">
+              <span class="product-price">Rs. 350</span>
+              <div class="product-tags">
+                <span>Soothing</span>
+                <span>Anti-acne</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card reveal">
+          <div class="product-img">
+            <!-- Replace with your Instagram photo -->
+            <img 
+              src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=400&fit=crop" 
+              alt="Glow Bar Lavender Calm Soap"
+            />
+            <div class="product-overlay">
+              <a href="https://www.instagram.com/glowbar06" target="_blank" class="btn">View on Instagram</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Himalayan Lavender Calm</h3>
+            <p class="product-desc">Relaxing lavender blend that calms the mind and gently moisturizes dry skin.</p>
+            <div class="product-meta">
+              <span class="product-price">Rs. 380</span>
+              <div class="product-tags">
+                <span>Calming</span>
+                <span>Moisturizing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card reveal">
+          <div class="product-img">
+            <!-- Replace with your Instagram photo -->
+            <img 
+              src="https://images.unsplash.com/photo-1643185450492-6ba77dea923a?w=400&h=400&fit=crop" 
+              alt="Glow Bar Coffee Scrub Soap"
+            />
+            <div class="product-overlay">
+              <a href="https://www.instagram.com/glowbar06" target="_blank" class="btn">View on Instagram</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Coffee Exfoliating Scrub</h3>
+            <p class="product-desc">Natural coffee grounds gently exfoliate dead skin cells, revealing fresh and smooth skin.</p>
+            <div class="product-meta">
+              <span class="product-price">Rs. 400</span>
+              <div class="product-tags">
+                <span>Exfoliant</span>
+                <span>Energizing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card reveal">
+          <div class="product-badge">Limited</div>
+          <div class="product-img">
+            <!-- Replace with your Instagram photo -->
+            <img 
+              src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=400&h=400&fit=crop" 
+              alt="Glow Bar Rose Petal Soap"
+            />
+            <div class="product-overlay">
+              <a href="https://www.instagram.com/glowbar06" target="_blank" class="btn">View on Instagram</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Rose Petal Radiance</h3>
+            <p class="product-desc">Infused with real rose petals and rose water for a luxurious, fragrant bathing experience.</p>
+            <div class="product-meta">
+              <span class="product-price">Rs. 420</span>
+              <div class="product-tags">
+                <span>Luxury</span>
+                <span>Fragrant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS SECTION -->
+  <section class="benefits section" id="benefits">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Why Choose Us</div>
+        <h2>The Glow Bar Difference</h2>
+        <p>Our soaps are free from harsh chemicals, artificial preservatives, and synthetic additives, ensuring a pure and safe bathing experience.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card reveal">
+          <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+          <h3>100% Natural</h3>
+          <p>Made entirely from naturally sourced Nepali ingredients with zero chemicals or synthetics.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3>Handcrafted</h3>
+          <p>Every single bar is carefully hand-poured and cured using traditional artisan methods.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon"><i class="fas fa-spa"></i></div>
+          <h3>3-in-1 Multi-Use</h3>
+          <p>Works as body soap, face cleanser, and hair wash — simplify your routine naturally.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+          <h3>All Skin Types</h3>
+          <p>Mild and gentle formulation suitable for sensitive, dry, oily, and combination skin.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Chemical Free</h3>
+          <p>No parabens, SLS, artificial colors, or synthetic fragrances — just pure nature.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon"><i class="fas fa-tint"></i></div>
+          <h3>Deep Moisturizing</h3>
+          <p>Natural oils and butters lock in moisture, keeping your skin soft and hydrated all day.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon"><i class="fas fa-globe-asia"></i></div>
+          <h3>Eco Friendly</h3>
+          <p>Biodegradable ingredients and minimal packaging to reduce environmental impact.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon"><i class="fas fa-award"></i></div>
+          <h3>Premium Quality</h3>
+          <p>Each batch is tested for quality ensuring consistent texture, scent, and effectiveness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INGREDIENTS SECTION -->
+  <section class="ingredients section" id="ingredients">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">What's Inside</div>
+        <h2>Nature's Finest Ingredients</h2>
+        <p>We harness the power of Nepal's rich natural resources to create soaps that nourish, cleanse, and rejuvenate your skin.</p>
+      </div>
+      <div class="ingredients-grid">
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">🥥</span>
+          <h3>Coconut Oil</h3>
+          <p>Deep moisturizing and antibacterial properties. Creates a rich, creamy lather for thorough cleansing.</p>
+        </div>
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">🫒</span>
+          <h3>Olive Oil</h3>
+          <p>Rich in antioxidants and vitamins A & E. Nourishes and protects skin from environmental damage.</p>
+        </div>
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">🍯</span>
+          <h3>Raw Honey</h3>
+          <p>Natural humectant that draws moisture into skin. Anti-inflammatory and gently antibacterial.</p>
+        </div>
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">🌿</span>
+          <h3>Aloe Vera</h3>
+          <p>Soothes irritation, hydrates deeply, and promotes healing. Perfect for sensitive skin care.</p>
+        </div>
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">🌼</span>
+          <h3>Turmeric</h3>
+          <p>Nepali turmeric brightens complexion, reduces dark spots, and has powerful anti-inflammatory benefits.</p>
+        </div>
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">🌹</span>
+          <h3>Rose Petals</h3>
+          <p>Natural astringent that tones skin. Provides a luxurious fragrance and gentle exfoliation.</p>
+        </div>
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">🌱</span>
+          <h3>Neem Extract</h3>
+          <p>Powerful antibacterial and antifungal properties. Ideal for acne-prone and problematic skin.</p>
+        </div>
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">💜</span>
+          <h3>Lavender Oil</h3>
+          <p>Calming aromatherapy benefits. Reduces stress while healing and rejuvenating tired skin.</p>
+        </div>
+        <div class="ingredient-card reveal">
+          <span class="ingredient-emoji">☕</span>
+          <h3>Coffee Grounds</h3>
+          <p>Natural exfoliant that removes dead cells, boosts circulation, and energizes your skin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="process section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Our Process</div>
+        <h2>From Nature to Your Hands</h2>
+        <p>Every Glow Bar soap goes through a meticulous handcrafted process ensuring the highest quality.</p>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step reveal">
+          <div class="step-number">1</div>
+          <h3>Source</h3>
+          <p>We carefully select the finest natural ingredients from Nepal's rich biodiversity.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">2</div>
+          <h3>Blend</h3>
+          <p>Ingredients are precisely measured and blended using traditional cold-process methods.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">3</div>
+          <h3>Cure</h3>
+          <p>Each bar is cured for 4-6 weeks to achieve the perfect texture and mildness.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">4</div>
+          <h3>Deliver</h3>
+          <p>Hand-wrapped in eco-friendly packaging and delivered with love to your doorstep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM GALLERY -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">@glowbar06</div>
+        <h2>Follow Us on Instagram</h2>
+        <p>See our latest creations, behind-the-scenes moments, and happy customers on our Instagram.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <!-- Replace all images below with your actual Instagram photos from @glowbar06 -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=400&h=400&fit=crop" alt="Glow Bar Instagram"/>
+          <div class="gallery-item-overlay"><i class="fab fa-instagram"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop" alt="Glow Bar Instagram"/>
+          <div class="gallery-item-overlay"><i class="fab fa-instagram"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=400&h=400&fit=crop" alt="Glow Bar Instagram"/>
+          <div class="gallery-item-overlay"><i class="fab fa-instagram"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop" alt="Glow Bar Instagram"/>
+          <div class="gallery-item-overlay"><i class="fab fa-instagram"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&h=400&fit=crop" alt="Glow Bar Instagram"/>
+          <div class="gallery-item-overlay"><i class="fab fa-instagram"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1643185450492-6ba77dea923a?w=400&h=400&fit=crop" alt="Glow Bar Instagram"/>
+          <div class="gallery-item-overlay"><i class="fab fa-instagram"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1614806687007-2215ec293413?w=400&h=400&fit=crop" alt="Glow Bar Instagram"/>
+          <div class="gallery-item-overlay"><i class="fab fa-instagram"></i></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1592136957897-b2b6ca21e10d?w=400&h=400&fit=crop" alt="Glow Bar Instagram"/>
+          <div class="gallery-item-overlay"><i class="fab fa-instagram"></i></div>
+        </div>
+      </div>
+      <div class="gallery-cta reveal">
+        <a href="https://www.instagram.com/glowbar06" target="_blank" class="btn-instagram">
+          <i class="fab fa-instagram"></i> Follow @glowbar06
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section class="reviews section" id="reviews">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Testimonials</div>
+        <h2>What Our Customers Say</h2>
+        <p>Real stories from real people who have experienced the natural glow of our handmade soaps.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "I've been using Glow Bar for 3 months now and the difference is incredible! My skin feels so soft and hydrated. Love that it's all natural and made right here in Nepal. The turmeric soap cleared my dark spots!"
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div class="review-author-info">
+              <h4>Srijana Sharma</h4>
+              <p>Butwal, Nepal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Best handmade soap I've ever used! I use the charcoal bar for my face and body — it's amazing how one soap can do so much. My acne has reduced significantly. Highly recommend Glow Bar to everyone!"
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">R</div>
+            <div class="review-author-info">
+              <h4>Rajesh Poudel</h4>
+              <p>Kathmandu, Nepal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="review-text">
+            "As someone with sensitive skin, finding the right soap was always a challenge. Glow Bar's Aloe & Neem soap has been a game-changer. No irritation, no dryness — just clean, fresh, glowing skin!"
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">A</div>
+            <div class="review-author-info">
+              <h4>Anisha Thapa</h4>
+              <p>Pokhara, Nepal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "I gifted Glow Bar soaps to my family and now everyone is hooked! The lavender one smells heavenly and lasts much longer than commercial soaps. Proud to support a local Nepali brand making such quality products."
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">P</div>
+            <div class="review-author-info">
+              <h4>Priya Adhikari</h4>
+              <p>Bhairahawa, Nepal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "The coffee scrub soap is my absolute favorite! It wakes up my skin in the morning and the exfoliation is so gentle yet effective. I've replaced my entire skincare routine with just this one bar. Amazing!"
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">D</div>
+            <div class="review-author-info">
+              <h4>Dipesh Gurung</h4>
+              <p>Chitwan, Nepal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "I use Glow Bar to wash my hair too and it actually works! My hair feels cleaner and softer than with regular shampoo. The fact that it's chemical-free gives me peace of mind. True glow comes from nature! 🌿"
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">M</div>
+            <div class="review-author-info">
+              <h4>Manisha KC</h4>
+              <p>Lumbini, Nepal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container reveal">
+      <h2>Ready to Experience Natural Glow?</h2>
+      <p>Join hundreds of happy customers who have switched to Nepal's finest handmade soaps. Order your Glow Bar today!</p>
+      <a href="https://www.instagram.com/glowbar06" target="_blank" class="btn-white">
+        <i class="fab fa-instagram"></i> Order via Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info reveal">
+          <div class="section-label">Get in Touch</div>
+          <h2>Let's Connect</h2>
+          <p>Have questions about our products? Want to place a bulk order? Or just want to say hello? We'd love to hear from you!</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h4>Our Location</h4>
+                <p>Butwal, Rupandehi, Nepal</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h4>Email Us</h4>
+                <p>glowbar06@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+              <div>
+                <h4>Call Us</h4>
+                <p>+977 98XXXXXXXX</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h4>Business Hours</h4>
+                <p>Sun - Fri: 9:00 AM - 6:00 PM</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://www.instagram.com/glowbar06" target="_blank" class="social-link" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" title="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="#" class="social-link" title="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form reveal">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+977 98XXXXXXXX" />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject">
+                <option value="">Select a subject</option>
+                <option value="order">Place an Order</option>
+                <option value="bulk">Bulk Order Inquiry</option>
+                <option value="product">Product Question</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea id="message" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">G</div>
+            <div class="logo-text">Glow<span>Bar</span></div>
+          </a>
+          <p>Premium Nepalese handmade soaps crafted with 100% natural ingredients. Pure by nature, crafted by hand, made with love in Butwal, Nepal.</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Enter your email" />
+            <button>Subscribe</button>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#products">Turmeric & Honey</a></li>
+            <li><a href="#products">Charcoal Detox</a></li>
+            <li><a href="#products">Aloe & Neem</a></li>
+            <li><a href="#products">Lavender Calm</a></li>
+            <li><a href="#products">Coffee Scrub</a></li>
+            <li><a href="#products">Rose Petal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="https://www.instagram.com/glowbar06" target="_blank">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Glow Bar Nepal. All rights reserved. Handmade with 🤎 in Butwal.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('hidden');
+      }, 1500);
+    });
+
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    if (window.innerWidth > 768) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX - 10 + 'px';
+        cursor.style.top = e.clientY - 10 + 'px';
+      });
+      document.querySelectorAll('a, button, .product-card, .benefit-card, .ingredient-card, .review-card').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+      });
+    }
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      if (window.scrollY > 600) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+      document.getElementById('hamburger').classList.toggle('active');
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('active');
+      document.getElementById('hamburger').classList.remove('active');
+    }
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Contact form
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const btn = document.querySelector('.form-submit');
+      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+      btn.style.background = 'linear-gradient(135deg, #6B8F71, #A8C5A0)';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        btn.style.background = 'linear-gradient(135deg, #5E503F, #3C3226)';
+        e.target.reset();
+      }, 3000);
+      alert(`Thank you ${name}! Your message has been received. We'll get back to you soon. 🌿`);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const position = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: position, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
